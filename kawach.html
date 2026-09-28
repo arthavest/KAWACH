@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KAWACH | ARTHAVEST INVESTMENT PRIVATE LIMITED</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&family=Noto+Serif+Devanagari:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F2F4F8; --surface:#FFFFFF; --ink:#101B2D; --muted:#5A6679; --line:#DCE1EA;
+  --crimson:#B4213A; --pine:#17795A; --amber:#B0731A; --steel:#2F5D8C; --steel-soft:#A9BFD9;
+  --hero:#0F1A2C; --hero-ink:#F2F4F8; --hero-muted:#9FB0C8; --rail:#0B1424; --rail-ink:#DDE4EF;
+  --serif:'Newsreader',Georgia,'Times New Roman',serif;
+  --sans:'Public Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --deva:'Noto Serif Devanagari','Nirmala UI',serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0A111E; --surface:#121C2E; --ink:#E8ECF3; --muted:#93A0B5; --line:#243149;
+    --crimson:#E2586F; --pine:#3DBB8C; --amber:#E2A544; --steel:#78A6DA; --steel-soft:#2C4A6D;
+    --hero:#15233A; --rail:#070D18;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0A111E; --surface:#121C2E; --ink:#E8ECF3; --muted:#93A0B5; --line:#243149;
+  --crimson:#E2586F; --pine:#3DBB8C; --amber:#E2A544; --steel:#78A6DA; --steel-soft:#2C4A6D;
+  --hero:#15233A; --rail:#070D18;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);background:var(--bg)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 var(--sans);font-variant-numeric:tabular-nums;-webkit-text-size-adjust:100%}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--steel);outline-offset:2px;border-radius:4px}
+
+.app{display:grid;grid-template-columns:248px minmax(0,1fr);min-height:100vh}
+.rail{background:var(--rail);color:var(--rail-ink);padding:26px 18px 22px;display:flex;flex-direction:column;gap:26px;position:sticky;top:env(safe-area-inset-top,0px);align-self:start;max-height:100vh;overflow:auto}
+.brand{display:flex;gap:12px;align-items:center}
+.brand svg{width:38px;height:46px;flex:none}
+.brand .name{font:600 24px/1 var(--serif);letter-spacing:.06em}
+.brand .deva{font:500 15px/1.2 var(--deva);color:var(--hero-muted);margin-top:4px}
+.co{font-size:12.5px;line-height:1.4;color:var(--hero-muted)}
+.co b{display:block;color:var(--rail-ink);font-weight:600;font-size:13px;letter-spacing:.02em}
+.nav{display:flex;flex-direction:column;gap:2px}
+.nav button{background:none;border:0;text-align:left;padding:10px 12px;border-radius:8px;color:var(--rail-ink);cursor:pointer;font-weight:500;opacity:.78}
+.nav button:hover{opacity:1;background:rgba(255,255,255,.06)}
+.nav button[aria-current="page"]{opacity:1;background:rgba(255,255,255,.1);box-shadow:inset 3px 0 0 var(--crimson)}
+.railfoot{margin-top:auto;font-size:12px;color:var(--hero-muted);line-height:1.45}
+
+.main{padding:28px clamp(16px,3.2vw,44px) 56px;min-width:0}
+.top{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;flex-wrap:wrap;margin-bottom:22px}
+h1{font:500 clamp(28px,4vw,38px)/1.1 var(--serif);margin:0;letter-spacing:-.01em}
+.sub{color:var(--muted);margin:6px 0 0;max-width:62ch}
+.tape{display:flex;gap:18px;align-items:center;flex-wrap:wrap;font-size:13.5px}
+.tape .idx{font:500 20px/1 var(--serif)}
+.up{color:var(--pine)} .down{color:var(--crimson)}
+.pill{display:inline-flex;align-items:center;gap:7px;padding:5px 11px;border-radius:99px;background:var(--surface);border:1px solid var(--line);font-size:13px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--muted)}
+.dot.on{background:var(--pine)}
+
+.banner{background:color-mix(in srgb,var(--amber) 14%,var(--surface));border:1px solid color-mix(in srgb,var(--amber) 40%,var(--line));border-radius:10px;padding:10px 14px;font-size:13.5px;margin-bottom:22px}
+
+h2{font:500 22px/1.2 var(--serif);margin:0 0 4px}
+h3{font:600 15px/1.3 var(--sans);margin:0 0 8px}
+.lede{color:var(--muted);font-size:13.5px;margin:0 0 14px;max-width:70ch}
+section.blk{margin-top:38px}
+.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:36px}
+.cols.wide{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr)}
+
+/* hero */
+.hero{background:var(--hero);color:var(--hero-ink);border-radius:20px;padding:28px clamp(18px,3vw,40px);display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(20px,4vw,56px);align-items:center}
+.shield{width:clamp(170px,22vw,240px);height:auto;display:block}
+.shield .fillr{transition:transform 1.5s cubic-bezier(.2,.7,.2,1)}
+.sc-num{font:500 66px/1 var(--serif);fill:#fff;paint-order:stroke;stroke:rgba(9,16,29,.55);stroke-width:5px;stroke-linejoin:round}
+.sc-lab{font:500 13px var(--sans);fill:#fff;paint-order:stroke;stroke:rgba(9,16,29,.55);stroke-width:4px;stroke-linejoin:round}
+.hero .lab{color:var(--hero-muted);font-size:13.5px}
+.nav-val{font:500 clamp(34px,5vw,52px)/1.05 var(--serif);letter-spacing:-.015em;margin:2px 0 4px}
+.hero .pl{font-size:15px}
+.hero .up{color:#5FD3A3}.hero .down{color:#FF8CA0}
+.parts{margin-top:22px;display:grid;gap:11px}
+.part{display:grid;grid-template-columns:150px 1fr 34px;gap:12px;align-items:center;font-size:13.5px}
+.bar{height:7px;border-radius:9px;background:rgba(255,255,255,.14);overflow:hidden}
+.bar i{display:block;height:100%;border-radius:9px}
+.part .n{text-align:right;color:var(--hero-muted)}
+.hero .why{margin:16px 0 0;color:var(--hero-muted);font-size:12.5px;max-width:58ch}
+
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:26px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kpi{padding:16px 18px 16px 0}
+.kpi + .kpi{padding-left:18px;border-left:1px solid var(--line)}
+.kpi .v{font:500 26px/1.15 var(--serif)}
+.kpi .l{color:var(--muted);font-size:13px}
+.kpi .s{font-size:12.5px;color:var(--muted);margin-top:2px}
+
+/* alerts */
+.alerts{display:grid;gap:10px}
+.alert{display:grid;grid-template-columns:8px 1fr;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.alert::before{content:"";border-radius:8px;background:var(--crimson)}
+.alert.watch::before{background:var(--amber)}
+.alert.ok::before{background:var(--pine)}
+.alert b{display:block;font-weight:600}
+.alert span{color:var(--muted);font-size:13.5px}
+
+/* bars */
+.pair{display:grid;grid-template-columns:64px 1fr 92px;gap:10px;align-items:center;margin:7px 0;font-size:13.5px}
+.pair .tr{display:grid;gap:3px}
+.pair .tr i{display:block;height:8px;border-radius:5px;min-width:2px}
+.pair .w{background:var(--steel-soft)}
+.pair .r{background:var(--crimson)}
+.pair small{color:var(--muted);text-align:right;font-size:12.5px}
+.legend{display:flex;gap:16px;font-size:12.5px;color:var(--muted);margin-bottom:6px;flex-wrap:wrap}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.sec{display:grid;grid-template-columns:120px 1fr 96px;gap:10px;align-items:center;margin:8px 0;font-size:13.5px}
+.track{position:relative;height:14px;background:color-mix(in srgb,var(--line) 55%,transparent);border-radius:4px}
+.track .f{position:absolute;left:0;top:0;height:100%;border-radius:4px;background:var(--steel)}
+.track .f.hot{background:var(--crimson)}
+.track .ref{position:absolute;top:-3px;height:20px;width:2px;background:var(--ink);opacity:.7}
+.sec small{text-align:right;color:var(--muted)}
+.dv{display:grid;grid-template-columns:130px 1fr 64px;gap:10px;align-items:center;margin:7px 0;font-size:13.5px}
+.dv .ax{position:relative;height:14px}
+.dv .ax::after{content:"";position:absolute;left:50%;top:-2px;bottom:-2px;width:1px;background:var(--line)}
+.dv .ax i{position:absolute;top:0;height:100%;border-radius:3px}
+.dv small{text-align:right}
+
+/* tables */
+.tw{overflow-x:auto;max-width:100%}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th{font-weight:600;color:var(--muted);text-align:right;padding:8px 10px;border-bottom:1px solid var(--line);white-space:nowrap;font-size:12.5px}
+td{padding:8px 10px;border-bottom:1px solid color-mix(in srgb,var(--line) 60%,transparent);text-align:right;white-space:nowrap}
+th:first-child,td:first-child,th.l,td.l{text-align:left}
+td .nm{display:block;color:var(--muted);font-size:12px;max-width:190px;overflow:hidden;text-overflow:ellipsis}
+td input{width:90px;text-align:right;padding:5px 7px;border:1px solid var(--line);border-radius:6px;background:var(--surface)}
+td input.q{width:84px}
+.x{background:none;border:0;color:var(--muted);cursor:pointer;padding:4px 8px;border-radius:6px}
+.x:hover{color:var(--crimson);background:color-mix(in srgb,var(--crimson) 10%,transparent)}
+tfoot td{font-weight:600;border-top:1px solid var(--line);border-bottom:0}
+
+.form{display:flex;gap:10px;flex-wrap:wrap;align-items:end;margin-top:18px}
+.form label{display:grid;gap:4px;font-size:12.5px;color:var(--muted)}
+.form input,.form select,.field input,.field select{padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);min-width:0}
+.form input{width:120px}.form input.sym{width:130px}
+.btn{background:var(--ink);color:var(--bg);border:0;border-radius:8px;padding:9px 16px;font-weight:600;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line);font-weight:500}
+.btn:hover{filter:brightness(1.12)}
+.msg{font-size:13px;color:var(--crimson);min-height:18px;margin-top:6px}
+.field{display:flex;gap:8px;align-items:center;font-size:13.5px}
+
+/* stress */
+.scen{display:grid;gap:6px;align-content:start}
+.scen button{text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer}
+.scen button b{display:block;font-weight:600}
+.scen button span{color:var(--muted);font-size:12.5px}
+.scen button[aria-pressed="true"]{border-color:var(--crimson);box-shadow:inset 3px 0 0 var(--crimson)}
+.stress{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:34px;align-items:start}
+.big{font:500 40px/1.1 var(--serif)}
+.sl{display:grid;grid-template-columns:130px 1fr 48px;gap:10px;align-items:center;font-size:13px;margin:6px 0}
+.sl input[type=range]{width:100%;accent-color:var(--crimson)}
+.sl small{text-align:right;color:var(--muted)}
+
+/* corr */
+.heat{display:grid;gap:2px;font-size:11px;min-width:520px}
+.heat div{display:grid;place-items:center;height:26px;border-radius:3px}
+.heat .h{color:var(--muted);font-weight:600;background:none}
+
+.kv td:first-child{color:var(--muted)}
+.kv td{padding:10px}
+.method p,.method li{max-width:72ch}
+.method ul{padding-left:20px}
+.foot{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:12.5px;max-width:80ch}
+.hist svg{width:100%;height:auto;display:block}
+.sr{position:absolute;left:-9999px}
+
+@media (max-width:1000px){
+  .cols,.cols.wide,.stress{grid-template-columns:minmax(0,1fr)}
+  .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .kpi:nth-child(3){border-left:0;padding-left:0}
+  .kpi:nth-child(n+3){border-top:1px solid var(--line)}
+}
+@media (max-width:900px){
+  .app{grid-template-columns:minmax(0,1fr)}
+  .rail{position:static;max-height:none;flex-direction:row;flex-wrap:wrap;align-items:center;gap:12px 20px;padding:16px 16px 10px}
+  .co,.railfoot{display:none}
+  .nav{flex-direction:row;overflow-x:auto;width:100%;gap:4px;padding-bottom:6px}
+  .nav button{white-space:nowrap;padding:8px 12px}
+  .nav button[aria-current="page"]{box-shadow:inset 0 -3px 0 var(--crimson)}
+  .hero{grid-template-columns:minmax(0,1fr);justify-items:center;text-align:center}
+  .hero .info{width:100%;text-align:left}
+}
+@media (max-width:560px){
+  .part{grid-template-columns:110px 1fr 30px}
+  .pair{grid-template-columns:54px 1fr 74px}
+  .sec{grid-template-columns:96px 1fr 74px}
+  .dv{grid-template-columns:96px 1fr 56px}
+  .sl{grid-template-columns:96px 1fr 44px}
+}
+@media (prefers-reduced-motion:reduce){.shield .fillr{transition:none}}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="rail">
+    <div class="brand">
+      <svg viewBox="0 0 200 240" aria-hidden="true"><path d="M100 8 L184 38 V112 C184 172 148 212 100 232 C52 212 16 172 16 112 V38 Z" fill="#B4213A"/><path d="M100 46 L100 196 M100 46 L152 68 V112 C152 150 128 178 100 192" fill="none" stroke="#fff" stroke-width="12" stroke-linejoin="round" stroke-linecap="round" opacity=".92"/></svg>
+      <div><div class="name">KAWACH</div><div class="deva">कवच</div></div>
+    </div>
+    <div class="co"><b>ARTHAVEST INVESTMENT PRIVATE LIMITED</b>Portfolio and risk console for Nepali markets</div>
+    <nav class="nav" id="nav" aria-label="Sections"></nav>
+    <div class="railfoot">Sample portfolio and model assumptions. Not investment advice.</div>
+  </aside>
+  <main class="main" id="main">
+    <div class="top">
+      <div><h1 id="title"></h1><p class="sub" id="subtitle"></p></div>
+      <div class="tape">
+        <span class="pill"><span class="dot" id="dot"></span><span id="mstat">Market</span></span>
+        <span><span class="idx">2,629.81</span> <span class="up">+0.45%</span><br><span style="color:var(--muted);font-size:12.5px">NEPSE close, 24 Sep 2026</span></span>
+      </div>
+    </div>
+    <div id="view"></div>
+    <div class="foot">KAWACH by ARTHAVEST INVESTMENT PRIVATE LIMITED. Holdings, prices and risk parameters shown here are illustrative until you enter your own. Risk figures are model estimates, not forecasts, and this page is not investment advice.</div>
+  </main>
+</div>
+
+<script>
+(function(){
+'use strict';
+
+/* ---------- reference data ---------- */
+const SECT={
+ 'Commercial Banks':{vol:.27,beta:1.05,ref:.29,g:'F'},
+ 'Development Banks':{vol:.34,beta:1.10,ref:.03,g:'F'},
+ 'Finance':{vol:.36,beta:1.15,ref:.01,g:'F'},
+ 'Microfinance':{vol:.38,beta:1.15,ref:.04,g:'F'},
+ 'Life Insurance':{vol:.32,beta:1.10,ref:.07,g:'F'},
+ 'Non-Life Insurance':{vol:.32,beta:.95,ref:.02,g:'F'},
+ 'Investment':{vol:.30,beta:1.00,ref:.09,g:'F'},
+ 'Hydropower':{vol:.36,beta:1.10,ref:.13,g:'N'},
+ 'Hotels & Tourism':{vol:.32,beta:.90,ref:.02,g:'N'},
+ 'Manufacturing':{vol:.30,beta:.85,ref:.06,g:'N'},
+ 'Trading':{vol:.28,beta:.90,ref:.01,g:'N'},
+ 'Others':{vol:.25,beta:.70,ref:.11,g:'N'}
+};
+(function(){const t=Object.values(SECT).reduce((a,s)=>a+s.ref,0);Object.values(SECT).forEach(s=>s.ref/=t)})();
+const SECT_NAMES=Object.keys(SECT);
+
+// symbol, company, NEPSE sector, placeholder price (NPR). Prices are placeholders: enter your own LTP.
+const UNI_LIST=[
+ ['NABIL','Nabil Bank','Commercial Banks',520],['NICA','NIC Asia Bank','Commercial Banks',430],
+ ['SCBL','Standard Chartered Bank Nepal','Commercial Banks',560],['GBIME','Global IME Bank','Commercial Banks',210],
+ ['EBL','Everest Bank','Commercial Banks',640],['SANIMA','Sanima Bank','Commercial Banks',300],
+ ['ADBL','Agricultural Development Bank','Commercial Banks',340],
+ ['UPPER','Upper Tamakoshi Hydropower','Hydropower',410],['CHCL','Chilime Hydropower','Hydropower',520],
+ ['NHPC','National Hydro Power','Hydropower',215],['AKPL','Arun Kabeli Power','Hydropower',300],
+ ['BPCL','Butwal Power Company','Hydropower',550],
+ ['NLIC','Nepal Life Insurance','Life Insurance',700],['LICN','Life Insurance Corporation Nepal','Life Insurance',800],
+ ['ALICL','Asian Life Insurance','Life Insurance',500],
+ ['NICL','Nepal Insurance Company','Non-Life Insurance',780],['SICL','Shikhar Insurance','Non-Life Insurance',500],
+ ['CBBL','Chhimek Laghubitta','Microfinance',1400],['SKBBL','Sana Kisan Bikas Laghubitta','Microfinance',1100],
+ ['MNBBL','Muktinath Bikas Bank','Development Banks',800],['GBBL','Garima Bikas Bank','Development Banks',780],
+ ['GFCL','Goodwill Finance','Finance',400],
+ ['SHL','Soaltee Hotel','Hotels & Tourism',460],['TRH','Taragaon Regency Hotel','Hotels & Tourism',350],
+ ['HDL','Himalayan Distillery','Manufacturing',2000],['SHIVM','Shivam Cements','Manufacturing',420],
+ ['UNL','Unilever Nepal','Manufacturing',22000],
+ ['STC','Salt Trading Corporation','Trading',3800],
+ ['CIT','Citizen Investment Trust','Investment',2300],['HIDCL','Hydroelectricity Investment & Development','Investment',430],
+ ['NTC','Nepal Telecom','Others',850]
+];
+const UNI={};UNI_LIST.forEach(([s,n,sec,p])=>UNI[s]={n,sector:sec,price:p});
+
+// [symbol, quantity, average cost]
+const SAMPLE=[['NABIL',6000,545],['NICA',8000,410],['SCBL',3000,520],['GBIME',9000,225],['NLIC',4000,640],
+ ['UPPER',12000,330],['CHCL',6000,540],['NHPC',12000,205],['CBBL',700,1500],['HDL',300,2150],
+ ['NTC',1200,830],['CIT',350,2200],['SHIVM',2500,440]];
+
+// NEPSE, close of 24 Sep 2026 (Chukul). Sector day changes in %.
+const MKT={date:'24 Sep 2026',index:2629.81,chg:11.78,pct:.0045,turnover:'Rs 5.22 Arba',volume:'1.15 Cr shares'};
+const SECT_DAY={'Manufacturing':1.84,'Trading':.97,'Life Insurance':.71,'Microfinance':.62,'Commercial Banks':.46,'Hotels & Tourism':.13,'Hydropower':.13,'Finance':.11,'Investment':.11,'Others':.05,'Development Banks':.01,'Non-Life Insurance':-.33};
+const GAINERS=[['NLO',12.47],['SONA',7.65],['KSY',7.56],['GCIL',7.07],['CYCL',6.47]];
+
+/* ---------- state ---------- */
+function load(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
+function save(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+function sampleHoldings(){return SAMPLE.map(([sym,qty,cost])=>({sym,qty,cost,ltp:UNI[sym].price}))}
+const st={
+  holdings:(function(){const h=load('kawach:h',null);return Array.isArray(h)&&h.length?h:sampleHoldings()})(),
+  limits:load('kawach:l',null)||{stock:.12,sector:.35,top3:.45,var:.03},
+  tax:load('kawach:t',.10),
+  view:'overview',scen:'bear',custom:{}
+};
+const persist=()=>{save('kawach:h',st.holdings);save('kawach:l',st.limits);save('kawach:t',st.tax)};
+
+/* ---------- format ---------- */
+const fIN=new Intl.NumberFormat('en-IN',{maximumFractionDigits:0});
+const f2=new Intl.NumberFormat('en-IN',{minimumFractionDigits:2,maximumFractionDigits:2});
+function npr(v){const a=Math.abs(v),s=v<0?'\u2212':'';
+  if(a>=1e9)return s+'Rs '+(a/1e9).toFixed(2)+' Arba';
+  if(a>=1e7)return s+'Rs '+(a/1e7).toFixed(2)+' Cr';
+  if(a>=1e5)return s+'Rs '+(a/1e5).toFixed(2)+' L';
+  return s+'Rs '+fIN.format(Math.round(a));}
+const nprF=v=>(v<0?'\u2212':'')+'Rs '+fIN.format(Math.abs(Math.round(v)));
+const pc=(x,d=1)=>(x*100).toFixed(d)+'%';
+const sg=(x,d=2)=>(x>=0?'+':'\u2212')+Math.abs(x*100).toFixed(d)+'%';
+const cls=x=>x>=0?'up':'down';
+const clamp=(x,a=0,b=100)=>Math.max(a,Math.min(b,x));
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* ---------- analytics ---------- */
+function meta(h){const u=UNI[h.sym];return {name:u?u.n:(h.name||h.sym),sector:u?u.sector:(h.sector&&SECT[h.sector]?h.sector:'Others')}}
+function rho(a,b){if(a.sym===b.sym)return 1;if(a.sector===b.sector)return .75;return SECT[a.sector].g===SECT[b.sector].g?.55:.45}
+const DAYS=240;
+
+function analyze(){
+  const H=st.holdings.map(h=>{const m=meta(h),S=SECT[m.sector];
+    return {sym:h.sym,qty:+h.qty||0,cost:+h.cost||0,ltp:+h.ltp||0,name:m.name,sector:m.sector,vol:S.vol,beta:S.beta,
+      value:(+h.qty||0)*(+h.ltp||0),basis:(+h.qty||0)*(+h.cost||0)}});
+  const V=H.reduce((a,h)=>a+h.value,0);
+  if(!H.length||V<=0)return {H,V:0,empty:true};
+  H.forEach(h=>h.w=h.value/V);
+  const n=H.length,cov=[];
+  for(let i=0;i<n;i++){cov.push([]);for(let j=0;j<n;j++)cov[i][j]=rho(H[i],H[j])*H[i].vol*H[j].vol}
+  const sw=cov.map(r=>r.reduce((a,c,j)=>a+c*H[j].w,0));
+  const varA=H.reduce((a,h,i)=>a+h.w*sw[i],0),volA=Math.sqrt(varA),volD=volA/Math.sqrt(DAYS);
+  H.forEach((h,i)=>{h.rc=h.w*sw[i]/varA;h.pnl=h.value-h.basis});
+  const beta=H.reduce((a,h)=>a+h.w*h.beta,0);
+  const hhi=H.reduce((a,h)=>a+h.w*h.w,0);
+  const sorted=[...H].sort((a,b)=>b.w-a.w);
+  const top3=sorted.slice(0,3).reduce((a,h)=>a+h.w,0);
+  const secMap={};H.forEach(h=>secMap[h.sector]=(secMap[h.sector]||0)+h.w);
+  const secList=Object.entries(secMap).map(([s,w])=>({s,w})).sort((a,b)=>b.w-a.w);
+  const a={H,V,n,cov,volA,volD,beta,hhi,effN:1/hhi,top3,secList,secMap,
+    var95:1.645*volD*V,var99:2.326*volD*V,pnl:H.reduce((x,h)=>x+h.pnl,0),basis:H.reduce((x,h)=>x+h.basis,0)};
+  a.alerts=buildAlerts(a);a.score=score(a);return a;
+}
+
+function buildAlerts(a){
+  const L=st.limits,out=[];
+  a.H.forEach(h=>{if(h.w>L.stock){const ex=h.value-L.stock*a.V,sh=Math.ceil(ex/h.ltp);
+    out.push({kind:'breach',t:`${h.sym} is ${pc(h.w)} of the portfolio`,d:`Your single-stock limit is ${pc(L.stock,0)}. Selling about ${fIN.format(sh)} shares (${npr(sh*h.ltp)}) brings it back inside.`})}});
+  a.secList.forEach(x=>{if(x.w>L.sector){const ex=(x.w-L.sector)*a.V;
+    out.push({kind:'breach',t:`${x.s} is ${pc(x.w)} of the portfolio`,d:`Your sector limit is ${pc(L.sector,0)}. Reducing the sector by about ${npr(ex)} restores the limit.`})}});
+  if(a.top3>L.top3)out.push({kind:'breach',t:`Top three holdings make up ${pc(a.top3)}`,d:`Your limit is ${pc(L.top3,0)}. Spread new money away from ${[...a.H].sort((p,q)=>q.w-p.w).slice(0,3).map(h=>h.sym).join(', ')}.`});
+  const v=a.var95/a.V;
+  if(v>L.var)out.push({kind:'breach',t:`One-day 95% VaR is ${pc(v,2)} of value`,d:`Your limit is ${pc(L.var,1)}. Lowering beta or trimming the highest risk contributors will bring it down.`});
+  a.H.forEach(h=>{if(h.rc>.15&&h.rc>1.4*h.w)out.push({kind:'watch',t:`${h.sym} adds more risk than its size suggests`,d:`It is ${pc(h.w)} of value but ${pc(h.rc)} of portfolio risk, because it moves with the rest of your ${h.sector.toLowerCase()} holdings.`})});
+  a.H.forEach(h=>{if(h.basis>0&&h.pnl/h.basis<-.2)out.push({kind:'watch',t:`${h.sym} is ${pc(-h.pnl/h.basis,0)} below your cost`,d:`Unrealised loss of ${nprF(-h.pnl)}. Review whether the original reason to hold still applies.`})});
+  return out.sort((x,y)=>(x.kind==='breach'?0:1)-(y.kind==='breach'?0:1));
+}
+
+function score(a){
+  const div=clamp(100*(a.effN-2)/10),vol=clamp(100*(.40-a.volA)/.25),
+    sec=clamp(100*(1-(a.secList[0].w-.20)/.45)),bet=clamp(100*(1.4-a.beta)/.7);
+  const br=a.alerts.filter(x=>x.kind==='breach').length,pen=Math.min(15,3*br);
+  return {total:Math.round(clamp(.30*div+.25*vol+.25*sec+.20*bet-pen)),pen,br,
+    parts:[['Diversification',div],['Volatility',vol],['Sector balance',sec],['Market sensitivity',bet]]};
+}
+
+function mulberry(s){return function(){s|=0;s=s+0x6D2B79F5|0;let t=Math.imul(s^s>>>15,1|s);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function chol(M){const n=M.length,L=Array.from({length:n},()=>new Array(n).fill(0));
+  for(let i=0;i<n;i++)for(let j=0;j<=i;j++){let s=M[i][j];for(let k=0;k<j;k++)s-=L[i][k]*L[j][k];
+    if(i===j)L[i][i]=Math.sqrt(Math.max(s,1e-12));else L[i][j]=s/L[j][j]}
+  return L}
+function monteCarlo(a,days=21,N=4000){
+  const sc=days/DAYS,C=a.cov.map(r=>r.map(x=>x*sc)),L=chol(C),rng=mulberry(20260928),n=a.n,out=new Array(N);
+  for(let s=0;s<N;s++){const z=new Array(n);
+    for(let i=0;i<n;i+=2){const u=Math.max(rng(),1e-12),v=rng(),r=Math.sqrt(-2*Math.log(u));z[i]=r*Math.cos(2*Math.PI*v);if(i+1<n)z[i+1]=r*Math.sin(2*Math.PI*v)}
+    let p=0;for(let i=0;i<n;i++){let r=0;for(let k=0;k<=i;k++)r+=L[i][k]*z[k];p+=a.H[i].value*r}
+    out[s]=p}
+  out.sort((x,y)=>x-y);
+  return {pnl:out,q05:out[Math.floor(.05*N)],q01:out[Math.floor(.01*N)]};
+}
+
+/* ---------- scenarios ---------- */
+const SCEN={
+ bear:{name:'Bear market',d:'NEPSE falls 30%. Each sector moves by its beta.',fn:h=>-.30*h.beta},
+ rate:{name:'NRB raises rates by 100 bps',d:'Banks, finance and leveraged sectors take the hit.',
+   map:{'Commercial Banks':-6,'Development Banks':-10,'Finance':-12,'Microfinance':-12,'Life Insurance':-5,'Non-Life Insurance':-4,'Investment':-8,'Hydropower':-8,'Hotels & Tourism':-6,'Manufacturing':-4,'Trading':-5,'Others':-3}},
+ monsoon:{name:'Poor monsoon, weak hydropower output',d:'Lower river flow cuts generation and sentiment.',
+   map:{'Hydropower':-15,'Investment':-6,'Commercial Banks':-2,'Development Banks':-2,'Finance':-2}},
+ remit:{name:'Remittance slowdown',d:'Household income and deposits weaken.',
+   map:{'Microfinance':-12,'Commercial Banks':-6,'Development Banks':-8,'Finance':-8,'Trading':-6,'Hotels & Tourism':-5,'Life Insurance':-3,'Manufacturing':-3}},
+ margin:{name:'Margin-lending curbs',d:'Share-backed loans tighten and speculative demand fades.',
+   map:{'Commercial Banks':-8,'Development Banks':-10,'Finance':-12,'Microfinance':-10,'Life Insurance':-8,'Non-Life Insurance':-8,'Investment':-10,'Hydropower':-12,'Hotels & Tourism':-8,'Manufacturing':-8,'Trading':-8,'Others':-6}},
+ custom:{name:'Build your own',d:'Set a move for each sector you hold.'}
+};
+function shockFor(key,h){
+  if(key==='bear')return SCEN.bear.fn(h);
+  if(key==='custom')return (st.custom[h.sector]||0)/100;
+  return (SCEN[key].map[h.sector]||0)/100;
+}
+
+/* ---------- small renderers ---------- */
+function shieldSVG(score,color){
+  const p='M100 8 L184 38 V112 C184 172 148 212 100 232 C52 212 16 172 16 112 V38 Z';
+  return `<svg class="shield" viewBox="0 0 200 240" role="img" aria-label="Kawach score ${score} out of 100">
+   <defs><clipPath id="sclip"><path d="${p}"/></clipPath></defs>
+   <path d="${p}" fill="rgba(255,255,255,.06)"/>
+   <g clip-path="url(#sclip)"><rect class="fillr" id="sfill" x="0" y="0" width="200" height="240" fill="${color}" opacity=".92" style="transform:translateY(240px)" data-score="${score}"/></g>
+   <path d="${p}" fill="none" stroke="rgba(255,255,255,.6)" stroke-width="3"/>
+   <text x="100" y="130" text-anchor="middle" class="sc-num">${score}</text>
+   <text x="100" y="158" text-anchor="middle" class="sc-lab">out of 100</text></svg>`;
+}
+function histSVG(m,V){
+  const p=m.pnl,N=p.length,lo=p[Math.floor(.005*N)],hi=p[Math.floor(.995*N)],B=44,W=640,H=190,pb=30,bw=(hi-lo)/B,c=new Array(B).fill(0);
+  p.forEach(x=>{if(x<lo||x>hi)return;c[Math.min(B-1,Math.floor((x-lo)/bw))]++});
+  const mx=Math.max(...c),X=v=>(v-lo)/(hi-lo)*W,bars=c.map((k,i)=>{const x0=lo+i*bw,h=k/mx*(H-pb-8),bad=x0+bw<=m.q05;
+    return `<rect x="${(i*W/B+1).toFixed(1)}" y="${(H-pb-h).toFixed(1)}" width="${(W/B-2).toFixed(1)}" height="${h.toFixed(1)}" rx="2" fill="${bad?'var(--crimson)':'var(--steel-soft)'}"/>`}).join('');
+  const zx=X(0),qx=X(m.q05);
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Distribution of 21-day profit and loss">${bars}
+   <line x1="${zx}" x2="${zx}" y1="4" y2="${H-pb}" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="4 3" opacity=".6"/>
+   <line x1="${qx}" x2="${qx}" y1="4" y2="${H-pb}" stroke="var(--crimson)" stroke-width="2"/>
+   <text x="${Math.min(qx+6,W-150)}" y="16" font-size="12" fill="var(--crimson)" font-family="var(--sans)">5% worst case: ${npr(m.q05)}</text>
+   <text x="2" y="${H-8}" font-size="12" fill="var(--muted)" font-family="var(--sans)">${npr(lo)}</text>
+   <text x="${zx}" y="${H-8}" font-size="12" text-anchor="middle" fill="var(--muted)" font-family="var(--sans)">No change</text>
+   <text x="${W-2}" y="${H-8}" font-size="12" text-anchor="end" fill="var(--muted)" font-family="var(--sans)">+${npr(hi).replace('Rs ','Rs ')}</text></svg>`;
+}
+function divBars(items,fmtv){
+  const mx=Math.max(...items.map(i=>Math.abs(i.v)),.0001);
+  return items.map(i=>{const w=Math.abs(i.v)/mx*50,pos=i.v>=0;
+    return `<div class="dv"><span>${esc(i.l)}</span><div class="ax"><i style="${pos?'left:50%':'right:50%'};width:${w}%;background:var(--${pos?'pine':'crimson'})"></i></div><small class="${cls(i.v)}">${fmtv(i.v)}</small></div>`}).join('');
+}
+
+/* ---------- views ---------- */
+const TITLES={
+ overview:['Overview','How well is the portfolio protected, and what needs attention first.'],
+ holdings:['Holdings','Edit quantities, cost and last traded price. Everything else recalculates.'],
+ risk:['Risk','Value at risk, where the risk comes from, and your limits.'],
+ stress:['Stress tests','See what specific shocks would do to your holdings, in rupees.'],
+ market:['Nepal market','NEPSE, the central bank and the rules that shape your trades.'],
+ method:['Method','How every number on these screens is calculated.']
+};
+const NAVS=[['overview','Overview'],['holdings','Holdings'],['risk','Risk'],['stress','Stress tests'],['market','Nepal market'],['method','Method']];
+
+function emptyView(){return `<div class="banner">Your portfolio is empty. Add a holding below to see risk figures.</div>`+addForm()}
+
+function vOverview(a){
+  if(a.empty)return emptyView();
+  const s=a.score,col=s.total>=75?'#2FA377':s.total>=55?'#D9A03A':'#D64560',mc=monteCarlo(a);a.mc=mc;
+  const pl=a.pnl,plp=a.basis?pl/a.basis:0;
+  const partsHTML=s.parts.map(([n,v])=>`<div class="part"><span>${n}</span><div class="bar"><i style="width:${v.toFixed(0)}%;background:${v>=70?'#2FA377':v>=45?'#D9A03A':'#D64560'}"></i></div><span class="n">${v.toFixed(0)}</span></div>`).join('');
+  const rows=[...a.H].sort((x,y)=>y.rc-x.rc).slice(0,10),mxr=Math.max(...rows.map(h=>Math.max(h.w,h.rc)));
+  const pairs=rows.map(h=>`<div class="pair"><b>${h.sym}</b><div class="tr"><i class="w" style="width:${h.w/mxr*100}%"></i><i class="r" style="width:${h.rc/mxr*100}%"></i></div><small>${pc(h.w,0)} / ${pc(h.rc,0)}</small></div>`).join('');
+  const secs=SECT_NAMES.filter(n=>a.secMap[n]||SECT[n].ref>.04).map(n=>({n,w:a.secMap[n]||0,r:SECT[n].ref})).sort((x,y)=>y.w-x.w);
+  const secHTML=secs.map(x=>{const mx=.6;return `<div class="sec"><span>${x.n}</span><div class="track"><div class="f ${x.w>st.limits.sector?'hot':''}" style="width:${Math.min(x.w/mx,1)*100}%"></div><div class="ref" style="left:${x.r/mx*100}%" title="Reference weight ${pc(x.r,0)}"></div></div><small>${pc(x.w,1)}</small></div>`}).join('');
+  const al=a.alerts.length?a.alerts.map(x=>`<div class="alert ${x.kind}"><div><b>${esc(x.t)}</b><span>${esc(x.d)}</span></div></div>`).join(''):`<div class="alert ok"><div><b>Everything is inside your limits</b><span>No limit breaches and no holdings flagged for review.</span></div></div>`;
+  const why=s.br?`Score includes a ${s.pen}-point deduction for ${s.br} limit ${s.br>1?'breaches':'breach'}.`:'No limit breaches.';
+  return `
+  <section class="hero">
+    ${shieldSVG(s.total,col)}
+    <div class="info">
+      <div class="lab">Portfolio value</div>
+      <div class="nav-val">${nprF(a.V)}</div>
+      <div class="pl ${cls(pl)}">${pl>=0?'+':'\u2212'}${nprF(Math.abs(pl)).replace('\u2212','')} unrealised (${sg(plp,1)}) on cost of ${npr(a.basis)}</div>
+      <div class="parts">${partsHTML}</div>
+      <p class="why">Kawach score blends the four measures above. ${why}</p>
+    </div>
+  </section>
+  <div class="kpis">
+    <div class="kpi"><div class="l">One-day loss, 95% confidence</div><div class="v">${npr(a.var95)}</div><div class="s">${pc(a.var95/a.V,2)} of value</div></div>
+    <div class="kpi"><div class="l">One-month 5% worst case</div><div class="v">${npr(-mc.q05)}</div><div class="s">${pc(-mc.q05/a.V,1)} of value, simulated</div></div>
+    <div class="kpi"><div class="l">Beta to NEPSE</div><div class="v">${a.beta.toFixed(2)}</div><div class="s">${a.beta>1?'Moves more than the index':'Moves less than the index'}</div></div>
+    <div class="kpi"><div class="l">Effective number of holdings</div><div class="v">${a.effN.toFixed(1)}</div><div class="s">of ${a.n} held</div></div>
+  </div>
+  <section class="blk"><h2>Needs attention</h2><p class="lede">Limit breaches come first, then holdings worth a second look. Edit your limits under Risk.</p><div class="alerts">${al}</div></section>
+  <section class="blk cols wide">
+    <div><h2>Where the risk comes from</h2><p class="lede">Ten largest risk contributors. A holding that sits high in red but short in blue is riskier than its size.</p>
+      <div class="legend"><span><i style="background:var(--steel-soft)"></i>Share of value</span><span><i style="background:var(--crimson)"></i>Share of risk</span></div>${pairs}</div>
+    <div><h2>Sector exposure</h2><p class="lede">The dark tick marks a rough NEPSE reference weight.</p>${secHTML}</div>
+  </section>
+  <section class="blk"><h2>One-month outlook</h2><p class="lede">4,000 simulated months using your holdings and the correlation model. The red bars are the worst 5% of outcomes.</p><div class="hist">${histSVG(mc,a.V)}</div></section>`;
+}
+
+function addForm(){
+  return `<form class="form" id="addf" autocomplete="off" onsubmit="return false">
+    <label>Symbol<input class="sym" id="fs" list="syms" placeholder="NABIL"></label>
+    <datalist id="syms">${UNI_LIST.map(u=>`<option value="${u[0]}">${esc(u[1])}</option>`).join('')}</datalist>
+    <label>Quantity<input id="fq" type="number" min="1" inputmode="numeric" placeholder="100"></label>
+    <label>Average cost (Rs)<input id="fc" type="number" min="0" step="0.01" inputmode="decimal"></label>
+    <label>Last price (Rs)<input id="fp" type="number" min="0" step="0.01" inputmode="decimal"></label>
+    <label>Sector<select id="fx">${SECT_NAMES.map(n=>`<option>${n}</option>`).join('')}</select></label>
+    <button class="btn" id="fadd" type="button">Add holding</button>
+  </form><div class="msg" id="fmsg" role="status"></div>`;
+}
+
+function vHoldings(a){
+  const rate=st.tax;
+  const rows=a.empty?'':a.H.map((h,i)=>{const gain=Math.max(0,h.pnl),tax=gain*rate;
+    return `<tr data-i="${i}"><td><b>${h.sym}</b><span class="nm">${esc(h.name)}</span></td><td class="l">${h.sector}</td>
+    <td><input class="q" type="number" min="0" data-k="qty" value="${h.qty}" aria-label="${h.sym} quantity"></td>
+    <td><input type="number" min="0" step="0.01" data-k="cost" value="${h.cost}" aria-label="${h.sym} average cost"></td>
+    <td><input type="number" min="0" step="0.01" data-k="ltp" value="${h.ltp}" aria-label="${h.sym} last price"></td>
+    <td data-c="val">${nprF(h.value)}</td><td data-c="w">${pc(h.w)}</td>
+    <td data-c="pl" class="${cls(h.pnl)}">${nprF(h.pnl)} (${h.basis?sg(h.pnl/h.basis,1):'-'})</td>
+    <td data-c="tax">${nprF(tax)}</td>
+    <td><button class="x" data-del="${i}" aria-label="Remove ${h.sym}">Remove</button></td></tr>`}).join('');
+  const foot=a.empty?'':`<tfoot><tr><td>Total</td><td></td><td></td><td></td><td></td><td id="tv">${nprF(a.V)}</td><td>100%</td><td id="tp" class="${cls(a.pnl)}">${nprF(a.pnl)}</td><td id="tt">${nprF(a.H.reduce((x,h)=>x+Math.max(0,h.pnl)*rate,0))}</td><td></td></tr></tfoot>`;
+  return `<div class="banner">This is a sample portfolio. Last prices are placeholders, so type in today's closing prices from NEPSE or your TMS before relying on any figure.</div>
+  <div class="field" style="margin-bottom:12px"><label for="taxsel">Capital gains tax used for the estimate</label>
+    <select id="taxsel"><option value="0.10" ${rate===.10?'selected':''}>10% (institution)</option><option value="0.075" ${rate===.075?'selected':''}>7.5% (individual, under 1 year)</option><option value="0.05" ${rate===.05?'selected':''}>5% (individual, over 1 year)</option></select></div>
+  ${a.empty?'':`<div class="tw"><table><thead><tr><th class="l">Holding</th><th class="l">Sector</th><th>Quantity</th><th>Avg cost (Rs)</th><th>Last price (Rs)</th><th>Value</th><th>Weight</th><th>Unrealised P&amp;L</th><th>Tax if sold</th><th></th></tr></thead><tbody>${rows}</tbody>${foot}</table></div>`}
+  <h2 style="margin-top:34px">Add a holding</h2><p class="lede">Pick a listed symbol to fill the sector and a placeholder price. For a symbol not in the list, type it and choose its sector.</p>
+  ${addForm()}
+  <div style="margin-top:26px"><button class="btn ghost" id="reset">Reset to sample portfolio</button></div>`;
+}
+
+function vRisk(a){
+  if(a.empty)return emptyView();
+  const mc=monteCarlo(a),L=st.limits,v95=a.var95/a.V;
+  const lim=(lab,key,val,unit)=>`<tr><td class="l">${lab}</td><td><input type="number" step="0.5" min="1" max="100" data-lim="${key}" value="${(L[key]*100).toFixed(1).replace(/\.0$/,'')}" aria-label="${lab}"> %</td><td>${unit}</td><td class="${val>L[key]?'down':'up'}">${val>L[key]?'Breached':'Inside'}</td></tr>`;
+  const n=a.n,order=[...a.H].sort((x,y)=>x.sector.localeCompare(y.sector)||y.w-x.w);
+  let heat=`<div class="heat" style="grid-template-columns:52px repeat(${n},1fr)"><div class="h"></div>`+order.map(h=>`<div class="h">${h.sym}</div>`).join('');
+  order.forEach(r=>{heat+=`<div class="h" style="justify-content:start">${r.sym}</div>`;order.forEach(c=>{const p=rho(r,c);heat+=`<div style="background:color-mix(in srgb,var(--steel) ${Math.round(p*90)}%,transparent);color:${p>.6?'#fff':'var(--ink)'}">${n>12?'':p.toFixed(2)}</div>`})});
+  heat+='</div>';
+  return `
+  <div class="cols wide">
+   <div><h2>Risk measures</h2><p class="lede">Model estimates from the assumptions on the Method tab.</p>
+    <table class="kv"><tbody>
+     <tr><td>One-day loss, 95% confidence</td><td>${nprF(a.var95)} (${pc(v95,2)})</td></tr>
+     <tr><td>One-day loss, 99% confidence</td><td>${nprF(a.var99)} (${pc(a.var99/a.V,2)})</td></tr>
+     <tr><td>Ten-day loss, 95% confidence</td><td>${nprF(a.var95*Math.sqrt(10))}</td></tr>
+     <tr><td>One-month 5% worst case (simulated)</td><td>${nprF(-mc.q05)}</td></tr>
+     <tr><td>One-month 1% worst case (simulated)</td><td>${nprF(-mc.q01)}</td></tr>
+     <tr><td>Annual volatility</td><td>${pc(a.volA)}</td></tr>
+     <tr><td>Beta to NEPSE</td><td>${a.beta.toFixed(2)}</td></tr>
+     <tr><td>Concentration (HHI)</td><td>${a.hhi.toFixed(3)}, equal to ${a.effN.toFixed(1)} equal-sized holdings</td></tr>
+    </tbody></table></div>
+   <div><h2>Your limits</h2><p class="lede">Set the limits ARTHAVEST works to. Breaches lower the Kawach score.</p>
+    <table><thead><tr><th class="l">Limit</th><th>Maximum</th><th>Now</th><th>Status</th></tr></thead><tbody>
+     ${lim('Single stock','stock',a.H.reduce((m,h)=>Math.max(m,h.w),0),pc(a.H.reduce((m,h)=>Math.max(m,h.w),0)))}
+     ${lim('Single sector','sector',a.secList[0].w,pc(a.secList[0].w))}
+     ${lim('Top three holdings','top3',a.top3,pc(a.top3))}
+     ${lim('One-day 95% VaR','var',v95,pc(v95,2))}
+    </tbody></table></div>
+  </div>
+  <section class="blk"><h2>Correlation between holdings</h2><p class="lede">Nepali stocks tend to move together, so the model assumes 0.75 within a sector, 0.55 across financial sectors or across non-financial sectors, and 0.45 between the two groups.</p><div class="tw">${heat}</div></section>
+  <section class="blk"><h2>Trim plan</h2><p class="lede">Suggested sales to get every holding back under the single-stock limit, with the capital gains tax you would owe at ${pc(st.tax,1)}.</p>${trimTable(a)}</section>`;
+}
+function trimTable(a){
+  const L=st.limits,rows=a.H.filter(h=>h.w>L.stock).map(h=>{const sh=Math.ceil((h.value-L.stock*a.V)/h.ltp),g=Math.max(0,h.ltp-h.cost)*sh*st.tax;
+    return `<tr><td>${h.sym}</td><td>${pc(h.w)}</td><td>${fIN.format(sh)}</td><td>${nprF(sh*h.ltp)}</td><td>${nprF(g)}</td></tr>`}).join('');
+  if(!rows)return `<div class="alert ok"><div><b>No single stock is above its limit</b><span>Nothing to trim at the current ${pc(L.stock,0)} limit.</span></div></div>`;
+  return `<div class="tw"><table><thead><tr><th>Symbol</th><th>Weight now</th><th>Shares to sell</th><th>Sale value</th><th>Estimated tax</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+}
+
+function vStress(a){
+  if(a.empty)return emptyView();
+  const btns=Object.entries(SCEN).map(([k,s])=>`<button data-sc="${k}" aria-pressed="${st.scen===k}"><b>${s.name}</b><span>${s.d}</span></button>`).join('');
+  const present=[...new Set(a.H.map(h=>h.sector))];
+  const sliders=st.scen==='custom'?`<div style="margin-top:20px"><h3>Sector moves</h3>`+present.map(s=>`<div class="sl"><span>${s}</span><input type="range" min="-40" max="20" step="1" value="${st.custom[s]||0}" data-cs="${esc(s)}" aria-label="${s} move"><small id="cs-${present.indexOf(s)}">${(st.custom[s]||0)>0?'+':''}${st.custom[s]||0}%</small></div>`).join('')+`</div>`:'';
+  return `<div class="stress"><div><div class="scen" id="scen">${btns}</div>${sliders}</div><div id="sres"></div></div>`;
+}
+function stressResult(a){
+  const rows=a.H.map(h=>{const p=shockFor(st.scen,h);return {h,p,amt:h.value*p}}).sort((x,y)=>x.amt-y.amt);
+  const tot=rows.reduce((s,r)=>s+r.amt,0),pct=tot/a.V;
+  const mx=Math.max(...rows.map(r=>Math.abs(r.amt)),1);
+  const list=rows.map(r=>`<div class="dv"><span><b>${r.h.sym}</b></span><div class="ax"><i style="${r.amt>=0?'left:50%':'right:50%'};width:${Math.abs(r.amt)/mx*50}%;background:var(--${r.amt>=0?'pine':'crimson'})"></i></div><small class="${cls(r.amt)}">${nprF(r.amt).replace(/^Rs /,'').replace('\u2212Rs ','\u2212')}</small></div>`).join('');
+  const worst=rows[0];
+  document.getElementById('sres').innerHTML=`<div class="lab" style="color:var(--muted)">${SCEN[st.scen].name}</div>
+   <div class="big ${cls(tot)}">${nprF(tot)}</div>
+   <div class="${cls(tot)}" style="margin-bottom:4px">${sg(pct,1)} of portfolio value, leaving ${nprF(a.V+tot)}</div>
+   <p class="lede">${tot<0&&worst.amt<0?`${worst.h.sym} is hit hardest at ${nprF(worst.amt)}.`:'No holding loses money in this scenario.'} Figures are in rupees.</p>
+   <h3 style="margin-top:20px">By holding (Rs)</h3>${list}`;
+}
+
+function vMarket(a){
+  const sectorRows=Object.entries(SECT_DAY).sort((x,y)=>y[1]-x[1]).map(([l,v])=>({l,v}));
+  let implied='';
+  if(!a.empty){const r=a.H.reduce((s,h)=>s+h.w*(SECT_DAY[h.sector]||0)/100,0);
+    implied=`<p class="lede">If each of your holdings had moved with its NEPSE sector on ${MKT.date}, the portfolio would have changed by <b class="${cls(r)}">${sg(r,2)}</b>, about ${nprF(r*a.V)}.</p>`}
+  const macro=[
+   ['NRB policy rate','4.25%','Monetary policy 2026/27, 7 Jul 2026'],
+   ['Inflation (CPI, year on year)','5.04%','Mid-May 2026. NRB aims to keep it under 5.5%'],
+   ['Foreign exchange reserves','Rs 3,704.55 Arba','About US$24.19 billion, 19.2 months of imports, mid-May 2026'],
+   ['Remittance inflows','+41.2%','Growth over the first ten months of FY 2025/26'],
+   ['Rupee peg','INR 1 = NPR 1.60','Fixed rate against the Indian rupee']];
+  const rules=[
+   ['Exchange and regulator','Nepal Stock Exchange (NEPSE); regulated by SEBON'],
+   ['Depository','CDS and Clearing Ltd (CDSC), with holdings in demat accounts'],
+   ['Trading days and hours','Sunday to Thursday, 11:00 to 15:00 Nepal time'],
+   ['Settlement','T+2 through your broker (TMS)'],
+   ['Daily price band','Plus or minus 10% from the previous close'],
+   ['Capital gains tax','Individuals 7.5% under one year, 5% over one year; institutions 10%. Confirm against the latest Finance Act'],
+   ['Listed companies','About 263 (March 2026)']];
+  return `<div class="cols wide">
+   <div><h2>NEPSE on ${MKT.date}</h2><p class="lede">The index closed at <b>${f2.format(MKT.index)}</b>, up ${MKT.chg} points (${sg(MKT.pct)}). Turnover was ${MKT.turnover} on ${MKT.volume}.</p>
+    ${implied}<h3 style="margin-top:18px">Sector moves on the day</h3>${divBars(sectorRows,v=>(v>=0?'+':'\u2212')+Math.abs(v).toFixed(2)+'%')}</div>
+   <div><h2>Biggest gainers</h2><p class="lede">Symbols only, as listed on the day. Some are debentures or small-cap stocks with thin volume.</p>
+    ${divBars(GAINERS.map(([l,v])=>({l,v})),v=>'+'+v.toFixed(2)+'%')}</div>
+  </div>
+  <section class="blk"><h2>Macro backdrop</h2><p class="lede">Latest figures published by Nepal Rastra Bank, as reported in June and July 2026.</p>
+   <table class="kv"><tbody>${macro.map(m=>`<tr><td class="l">${m[0]}</td><td style="font-family:var(--serif);font-size:19px;text-align:left">${m[1]}</td><td class="l" style="color:var(--muted);white-space:normal">${m[2]}</td></tr>`).join('')}</tbody></table></section>
+  <section class="blk"><h2>How the market works</h2><table class="kv"><tbody>${rules.map(r=>`<tr><td class="l" style="white-space:normal;width:34%">${r[0]}</td><td class="l" style="white-space:normal">${r[1]}</td></tr>`).join('')}</tbody></table></section>
+  <p class="lede" style="margin-top:22px">Sources: Chukul (NEPSE close and sector changes), Nepal Rastra Bank monetary policy and macroeconomic reports, Nepal Stock Exchange. KAWACH is not yet connected to a live NEPSE feed, so these market figures are a dated snapshot.</p>`;
+}
+
+function vMethod(){
+  return `<div class="method"><h2>What the model does</h2>
+  <p>KAWACH treats each holding as a stock with a volatility and beta taken from its NEPSE sector, then combines them with a simple correlation structure. It is a transparent starting model, not a full factor model.</p>
+  <ul>
+   <li><b>Volatility and beta.</b> Each sector has an assumed annual volatility (25% to 38%) and beta to NEPSE (0.70 to 1.15). Replace these with figures from your own price history when you have it.</li>
+   <li><b>Correlation.</b> 0.75 inside a sector, 0.55 between financial sectors (banks, finance, microfinance, insurance, investment) or between non-financial sectors, 0.45 between the two groups.</li>
+   <li><b>Value at risk.</b> Portfolio volatility comes from the covariance matrix. One-day VaR is 1.645 (95%) or 2.326 (99%) times daily volatility times portfolio value, using 240 trading days a year.</li>
+   <li><b>One-month outlook.</b> 4,000 correlated simulations over 21 trading days, assuming normally distributed returns and no drift.</li>
+   <li><b>Risk contribution.</b> Each holding's share of portfolio variance. It differs from its weight when the holding is highly correlated with the rest.</li>
+   <li><b>Kawach score.</b> Diversification (30%), volatility (25%), sector balance (25%) and market sensitivity (20%), each scored 0 to 100, minus 3 points per limit breach up to 15.</li>
+   <li><b>Stress tests.</b> Each scenario applies a fixed percentage move to every holding in the affected sectors. Scenario sizes are judgement calls, so treat them as prompts for discussion, not predictions.</li>
+   <li><b>Reference sector weights.</b> Rough approximations of NEPSE sector weights, normalised to 100%. Swap in your benchmark.</li>
+  </ul>
+  <h2 style="margin-top:28px">What it does not capture</h2>
+  <ul>
+   <li>Live prices. Enter last traded prices yourself.</li>
+   <li>Liquidity. Many Nepali stocks trade thin, and the 10% daily band can stop you selling on a bad day, so real losses can exceed the figures here.</li>
+   <li>Fat tails. Normal returns understate extreme days.</li>
+   <li>Fees and settlement timing. Broker commission and DP charges are not deducted.</li>
+  </ul>
+  <p>Your holdings and limits are saved in this browser only. They are not sent anywhere.</p></div>`;
+}
+
+/* ---------- controller ---------- */
+const $=id=>document.getElementById(id);
+let A=null;
+function render(){
+  A=analyze();
+  const [t,s]=TITLES[st.view];$('title').textContent=t;$('subtitle').textContent=s;
+  $('nav').innerHTML=NAVS.map(([k,l])=>`<button data-v="${k}" ${k===st.view?'aria-current="page"':''}>${l}</button>`).join('');
+  const V=$('view');
+  V.innerHTML=({overview:vOverview,holdings:vHoldings,risk:vRisk,stress:vStress,market:vMarket,method:vMethod})[st.view](A);
+  const f=$('sfill');if(f){const sc=+f.dataset.score;requestAnimationFrame(()=>requestAnimationFrame(()=>{f.style.transform=`translateY(${240*(1-sc/100)}px)`}))}
+  if(st.view==='stress'&&!A.empty)stressResult(A);
+}
+function go(v){st.view=v;render();window.scrollTo({top:0})}
+
+document.addEventListener('click',e=>{
+  const t=e.target.closest('button');if(!t)return;
+  if(t.dataset.v)return go(t.dataset.v);
+  if(t.dataset.del!==undefined){st.holdings.splice(+t.dataset.del,1);persist();return render()}
+  if(t.id==='reset'){st.holdings=sampleHoldings();persist();return render()}
+  if(t.dataset.sc){st.scen=t.dataset.sc;return render()}
+  if(t.id==='fadd')return addHolding();
+});
+document.addEventListener('input',e=>{
+  const t=e.target;
+  if(t.dataset.cs){st.custom[t.dataset.cs]=+t.value;const present=[...new Set(A.H.map(h=>h.sector))];
+    const el=$('cs-'+present.indexOf(t.dataset.cs));if(el)el.textContent=(t.value>0?'+':'')+t.value+'%';stressResult(A)}
+});
+document.addEventListener('change',e=>{
+  const t=e.target;
+  if(t.id==='taxsel'){st.tax=+t.value;persist();return render()}
+  if(t.dataset.lim){const v=Math.max(.005,Math.min(1,(+t.value)/100));st.limits[t.dataset.lim]=v;persist();return render()}
+  if(t.dataset.k){const tr=t.closest('tr'),i=+tr.dataset.i;st.holdings[i][t.dataset.k]=Math.max(0,+t.value||0);persist();refreshRows()}
+  if(t.id==='fs'){const u=UNI[t.value.trim().toUpperCase()];if(u){$('fp').value=u.price;$('fx').value=u.sector;$('fx').disabled=true}else{$('fx').disabled=false}}
+});
+function refreshRows(){
+  const a=analyze();A=a;if(a.empty)return render();
+  const rate=st.tax;
+  document.querySelectorAll('tbody tr[data-i]').forEach(tr=>{const h=a.H[+tr.dataset.i];if(!h)return;
+    tr.querySelector('[data-c=val]').textContent=nprF(h.value);tr.querySelector('[data-c=w]').textContent=pc(h.w);
+    const p=tr.querySelector('[data-c=pl]');p.textContent=`${nprF(h.pnl)} (${h.basis?sg(h.pnl/h.basis,1):'-'})`;p.className=cls(h.pnl);
+    tr.querySelector('[data-c=tax]').textContent=nprF(Math.max(0,h.pnl)*rate)});
+  $('tv').textContent=nprF(a.V);const tp=$('tp');tp.textContent=nprF(a.pnl);tp.className=cls(a.pnl);
+  $('tt').textContent=nprF(a.H.reduce((x,h)=>x+Math.max(0,h.pnl)*rate,0));
+}
+function addHolding(){
+  const sym=$('fs').value.trim().toUpperCase(),qty=+$('fq').value,ltp=+$('fp').value,msg=$('fmsg');
+  let cost=+$('fc').value;
+  if(!/^[A-Z0-9]{2,12}$/.test(sym)){msg.textContent='Enter a symbol using letters and numbers only.';return}
+  if(!(qty>0)){msg.textContent='Enter a quantity above zero.';return}
+  if(!(ltp>0)){msg.textContent='Enter the last traded price.';return}
+  if(!(cost>0))cost=ltp;
+  const ex=st.holdings.find(h=>h.sym===sym);
+  if(ex){const tq=ex.qty+qty;ex.cost=((ex.qty*ex.cost)+(qty*cost))/tq;ex.qty=tq;ex.ltp=ltp}
+  else{const h={sym,qty,cost,ltp};if(!UNI[sym]){h.sector=$('fx').value;h.name=sym}st.holdings.push(h)}
+  persist();render();
+}
+
+function tick(){
+  const n=new Date(),t=new Date(n.getTime()+n.getTimezoneOffset()*60000+5.75*3600000),d=t.getDay(),m=t.getHours()*60+t.getMinutes();
+  const open=d>=0&&d<=4&&m>=660&&m<900,hh=String(t.getHours()).padStart(2,'0'),mm=String(t.getMinutes()).padStart(2,'0');
+  $('dot').className='dot'+(open?' on':'');
+  $('mstat').textContent=(open?'Session open':'Session closed')+', '+hh+':'+mm+' Nepal';
+}
+tick();setInterval(tick,30000);
+render();
+})();
+</script>
+</body>
+</html>
