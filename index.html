@@ -381,6 +381,60 @@ function monteCarlo(a,days=21,N=4000){
   return {pnl:out,q05:out[Math.floor(.05*N)],q01:out[Math.floor(.01*N)]};
 }
 
+/* ---------- technical screener: 200-day EMA crossover ---------- */
+function strHash(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
+function genSeries(sym,days=260){
+  const u=UNI[sym],sect=SECT[u.sector],dailySig=sect.vol/Math.sqrt(252),rng=mulberry(strHash(sym)^0x9E3779B9);
+  const path=[100];
+  for(let i=1;i<days;i++){const uu=Math.max(rng(),1e-12),v=rng(),z=Math.sqrt(-2*Math.log(uu))*Math.cos(2*Math.PI*v);
+    path.push(path[i-1]*Math.exp(z*dailySig-.5*dailySig*dailySig))}
+  const scale=u.price/path[days-1];
+  return path.map(p=>p*scale);
+}
+function ema200(series){
+  const period=200,k=2/(period+1);
+  if(series.length<period)return new Array(series.length).fill(null);
+  let sma=0;for(let i=0;i<period;i++)sma+=series[i];sma/=period;
+  const out=new Array(series.length).fill(null);out[period-1]=sma;
+  for(let i=period;i<series.length;i++)out[i]=series[i]*k+out[i-1]*(1-k);
+  return out;
+}
+function detectCross(series,ema,lookback=10){
+  const n=series.length;
+  for(let i=n-1;i>=Math.max(200,n-lookback);i--){
+    if(ema[i]==null||ema[i-1]==null)continue;
+    const now=series[i]-ema[i],prev=series[i-1]-ema[i-1];
+    if(prev<=0&&now>0)return{type:'buy',idx:i,ago:n-1-i};
+    if(prev>=0&&now<0)return{type:'sell',idx:i,ago:n-1-i};
+  }
+  return null;
+}
+function screenerData(){
+  const days=260;
+  const rows=UNI_LIST.map(([sym,name,sector])=>{
+    const series=genSeries(sym,days),ema=ema200(series),cross=detectCross(series,ema,10);
+    const last=series[days-1],lastEma=ema[days-1],distPct=(last-lastEma)/lastEma;
+    return {sym,name,sector,last,lastEma,distPct,cross,series,ema};
+  });
+  const signals=rows.filter(r=>r.cross).sort((a,b)=>a.cross.ago-b.cross.ago);
+  const watch=rows.filter(r=>!r.cross&&Math.abs(r.distPct)<=.015).sort((a,b)=>Math.abs(a.distPct)-Math.abs(b.distPct));
+  return {rows,signals,watch};
+}
+function sparkSVG(series,ema,crossAgo){
+  const N=series.length,take=Math.min(140,N),start=N-take;
+  const s=series.slice(start),e=ema.slice(start).map((v,i)=>v==null?s[i]:v);
+  const all=s.concat(e),lo=Math.min(...all),hi=Math.max(...all),W=640,H=170,pb=18;
+  const X=i=>i/(take-1)*W,Y=v=>H-pb-((v-lo)/(hi-lo||1))*(H-pb-6);
+  const path=arr=>arr.map((v,i)=>`${i===0?'M':'L'}${X(i).toFixed(1)},${Y(v).toFixed(1)}`).join(' ');
+  const crossX=crossAgo!=null&&crossAgo<take?X(take-1-crossAgo):null;
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Price against 200-day EMA">
+   <path d="${path(e)}" fill="none" stroke="var(--muted)" stroke-width="1.6" stroke-dasharray="5 4"/>
+   <path d="${path(s)}" fill="none" stroke="var(--steel)" stroke-width="2.2"/>
+   ${crossX!=null?`<line x1="${crossX.toFixed(1)}" x2="${crossX.toFixed(1)}" y1="4" y2="${H-pb}" stroke="var(--crimson)" stroke-width="1.5" stroke-dasharray="3 3"/>`:''}
+   <text x="2" y="14" font-size="11" fill="var(--muted)" font-family="var(--sans)">Price</text>
+   <text x="2" y="${H-4}" font-size="11" fill="var(--muted)" font-family="var(--sans)">200 EMA (dashed)</text></svg>`;
+}
+
 /* ---------- scenarios ---------- */
 const SCEN={
  bear:{name:'Bear market',d:'NEPSE falls 30%. Each sector moves by its beta.',fn:h=>-.30*h.beta},
@@ -439,9 +493,10 @@ const TITLES={
  stress:['Stress tests','See what specific shocks would do to your holdings, in rupees.'],
  market:['Nepal market','NEPSE, the central bank and the rules that shape your trades.'],
  method:['Method','How every number on these screens is calculated.'],
- about:['About us','Who builds and stands behind Kawach.']
+ about:['About us','Who builds and stands behind Kawach.'],
+ screener:['Technical screener','Stocks that just crossed the 200-day EMA — buy on the way up, sell on the way down.']
 };
-const NAVS=[['overview','Overview'],['holdings','Holdings'],['risk','Risk'],['stress','Stress tests'],['market','Nepal market'],['method','Method'],['about','About us']];
+const NAVS=[['overview','Overview'],['holdings','Holdings'],['risk','Risk'],['stress','Stress tests'],['market','Nepal market'],['screener','Technical screener'],['method','Method'],['about','About us']];
 
 function emptyView(){return `<div class="banner">Your portfolio is empty. Add a holding below to see risk figures.</div>`+addForm()}
 
@@ -616,6 +671,7 @@ function vMethod(){
    <li><b>Risk contribution.</b> Each holding's share of portfolio variance. It differs from its weight when the holding is highly correlated with the rest.</li>
    <li><b>Kawach score.</b> Diversification (30%), volatility (25%), sector balance (25%) and market sensitivity (20%), each scored 0 to 100, minus 3 points per limit breach up to 15.</li>
    <li><b>Stress tests.</b> Each scenario applies a fixed percentage move to every holding in the affected sectors. Scenario sizes are judgement calls, so treat them as prompts for discussion, not predictions.</li>
+   <li><b>Technical screener.</b> Each covered stock gets a 260-session price path simulated from its sector's daily volatility, anchored so the final value matches its last known price. The 200-day EMA (smoothing factor 2/201) is computed on that path, and a signal fires the session price crosses it. Until real daily closes are wired in, treat every signal here as an illustration of the rule, not a live call.</li>
    <li><b>Reference sector weights.</b> Rough approximations of NEPSE sector weights, normalised to 100%. Swap in your benchmark.</li>
   </ul>
   <h2 style="margin-top:28px">What it does not capture</h2>
@@ -626,6 +682,26 @@ function vMethod(){
    <li>Fees and settlement timing. Broker commission and DP charges are not deducted.</li>
   </ul>
   <p>Your holdings and limits are saved in this browser only. They are not sent anywhere.</p></div>`;
+}
+
+function vScreener(){
+  const {signals,watch}=screenerData(),top=signals[0];
+  const sigRows=signals.slice(0,20).map(r=>`<tr><td><b>${r.sym}</b><span class="nm">${esc(r.name)}</span></td><td class="l">${r.sector}</td>
+   <td class="${r.cross.type==='buy'?'up':'down'}"><b>${r.cross.type==='buy'?'BUY':'SELL'}</b></td>
+   <td>${f2.format(r.last)}</td><td>${f2.format(r.lastEma)}</td>
+   <td>${r.cross.ago===0?'This session':r.cross.ago+' session'+(r.cross.ago>1?'s':'')+' ago'}</td></tr>`).join('');
+  const watchRows=watch.slice(0,10).map(r=>`<tr><td><b>${r.sym}</b></td><td class="l">${r.sector}</td><td>${f2.format(r.last)}</td><td>${f2.format(r.lastEma)}</td><td class="${cls(r.distPct)}">${sg(r.distPct,2)}</td></tr>`).join('');
+  return `
+  <div class="banner">This screener runs on modeled price paths anchored to each stock's last known price, not a live NEPSE feed — see how below. Wire in real daily closes (same EMA formula, on the Method tab) and the identical logic flags real signals.</div>
+  <section class="blk"><h2>How the system decides</h2><p class="lede" style="max-width:70ch">Every covered stock's price is plotted against its 200-day exponential moving average (EMA). A <b class="up">BUY</b> signal fires the session a stock closes <i>above</i> its 200 EMA after being below it. A <b class="down">SELL</b> signal fires the session it closes back <i>below</i> the 200 EMA after being above it. Only crossings from the last 10 sessions are shown, so the list stays current and a stock drops off once the signal goes stale.</p></section>
+  ${top?`<section class="blk"><h2>Most recent signal: ${top.sym}, <span class="${top.cross.type==='buy'?'up':'down'}">${top.cross.type==='buy'?'BUY':'SELL'}</span></h2>
+   <p class="lede">${esc(top.name)} (${top.sector}) closed ${top.cross.type==='buy'?'above':'below'} its 200 EMA ${top.cross.ago===0?'this session':top.cross.ago+' session'+(top.cross.ago>1?'s':'')+' ago'}, at ${f2.format(top.last)} against an EMA of ${f2.format(top.lastEma)}.</p>
+   <div class="hist">${sparkSVG(top.series,top.ema,top.cross.ago)}</div></section>`:''}
+  <section class="blk"><h2>Fresh crossovers, last 10 sessions</h2><p class="lede">${signals.length?`${signals.length} of ${UNI_LIST.length} covered stocks crossed their 200 EMA recently, most recent first.`:`No covered stock crossed its 200 EMA in the last 10 modeled sessions.`}</p>
+   ${sigRows?`<div class="tw"><table><thead><tr><th class="l">Stock</th><th class="l">Sector</th><th>Signal</th><th>Price</th><th>200 EMA</th><th>Crossed</th></tr></thead><tbody>${sigRows}</tbody></table></div>`:''}</section>
+  <section class="blk"><h2>Approaching the line</h2><p class="lede">Within 1.5% of the 200 EMA but not yet crossed — worth watching for the next session.</p>
+   ${watchRows?`<div class="tw"><table><thead><tr><th class="l">Stock</th><th class="l">Sector</th><th>Price</th><th>200 EMA</th><th>Distance</th></tr></thead><tbody>${watchRows}</tbody></table></div>`:'<div class="alert ok"><div><b>Nothing sitting close to the line right now</b></div></div>'}</section>
+  <p class="lede" style="margin-top:22px">This is a rule-based system, not a guarantee: a 200 EMA crossover is a lagging signal, and thinly traded Nepali counters can whipsaw across it inside the 10% daily band. Treat a signal as a prompt to look closer, not an instruction to trade.</p>`;
 }
 
 function vAbout(){
@@ -679,7 +755,7 @@ function render(){
   const [t,s]=TITLES[st.view];$('title').textContent=t;$('subtitle').textContent=s;
   $('nav').innerHTML=NAVS.map(([k,l])=>`<button data-v="${k}" ${k===st.view?'aria-current="page"':''}>${l}</button>`).join('');
   const V=$('view');
-  V.innerHTML=({overview:vOverview,holdings:vHoldings,risk:vRisk,stress:vStress,market:vMarket,method:vMethod,about:vAbout})[st.view](A);
+  V.innerHTML=({overview:vOverview,holdings:vHoldings,risk:vRisk,stress:vStress,market:vMarket,screener:vScreener,method:vMethod,about:vAbout})[st.view](A);
   const f=$('sfill');if(f){const sc=+f.dataset.score;requestAnimationFrame(()=>requestAnimationFrame(()=>{f.style.transform=`translateY(${240*(1-sc/100)}px)`}))}
   if(st.view==='stress'&&!A.empty)stressResult(A);
 }
