@@ -431,7 +431,7 @@ const TITLES={
  method:['Method','How every number on these screens is calculated.'],
  about:['About us','Who builds and stands behind kawach.'],
 };
-const NAVS=[['overview','Overview'],['holdings','Holdings'],['risk','Risk'],['stress','Stress tests'],['market','Nepal market'],['method','Method'],['about','About'];
+const NAVS=[['overview','Overview'],['holdings','Holdings'],['risk','Risk'],['stress','Stress tests'],['market','Nepal market'],['method','Method'],['about','About us']];
 
 function emptyView(){return `<div class="banner">Your portfolio is empty. Add a holding below to see risk figures.</div>`+addForm()}
 
@@ -618,6 +618,37 @@ function vMethod(){
   <p>Your holdings and limits are saved in this browser only. They are not sent anywhere.</p></div>`;
 }
 
+function vAbout(){
+  const stats=[['2026','Founded'],['NEPSE','Primary market covered'],['SEBON','Regulatory framework we build against'],['\u0915\u0935\u091A','Sanskrit for "armour" or "shield"']];
+  const principles=[
+   ['Built for one market','Kawach is not a global platform trimmed down for Nepal. Sector volatilities, correlations, tax bands and settlement rules are drawn from NEPSE, SEBON and Nepal Rastra Bank from the outset.'],
+   ['Transparent, not a black box','Every figure on these screens traces back to a stated assumption on the Method tab. Where we do not know something about your holdings, we ask, rather than guess.'],
+   ['Risk before return','A portfolio management system should tell a manager what could go wrong before it tells them what could go right. Kawach opens on limits, concentration and downside, not on performance.'],
+   ['Your data stays yours','Holdings and limits are stored on your own device. Nothing is sent to a server, and nothing is shared with a counterparty or a data vendor.']];
+  return `
+  <section class="hero" style="grid-template-columns:1fr">
+   <div class="info" style="text-align:left">
+    <div class="lab">ARTHAVEST INVESTMENT PRIVATE LIMITED</div>
+    <div class="nav-val" style="font-size:clamp(26px,3.4vw,34px)">A risk and portfolio system built for the Nepali market</div>
+    <p class="pl" style="max-width:62ch;color:var(--hero-muted)">Kawach, meaning armour, is ARTHAVEST's in-house console for seeing what a portfolio actually holds: where its risk sits, where it breaches its own limits, and how it would hold up under a shock to Nepal's banks, hydropower producers or remittance flows.</p>
+   </div>
+  </section>
+  <div class="kpis">${stats.map(s=>`<div class="kpi"><div class="v" style="font-size:22px">${s[0]}</div><div class="l">${s[1]}</div></div>`).join('')}</div>
+  <section class="blk"><h2>Why we built Kawach</h2>
+   <p class="lede" style="max-width:72ch">International risk platforms are built around the S&amp;P 500, the FTSE or the Nikkei — deep, liquid markets with decades of return history. NEPSE is younger, thinner, and moves in its own way: banks and hydropower dominate, correlations run high, and a 10% daily circuit can turn a bad day into a week-long problem. ARTHAVEST built Kawach because we wanted a system that reasoned about our own portfolios in those terms, rather than a global tool asked to make do.</p>
+  </section>
+  <section class="blk cols">${principles.map(p=>`<div><h3>${p[0]}</h3><p class="lede" style="margin-bottom:0">${p[1]}</p></div>`).join('')}</section>
+  <section class="blk"><h2>ARTHAVEST INVESTMENT PRIVATE LIMITED</h2>
+   <p class="lede" style="max-width:72ch">ARTHAVEST is a Nepal-based investment company active in the stock and financial markets. Kawach is built for our own portfolio and risk management, and shared here in that form.</p>
+   <table class="kv"><tbody>
+    <tr><td class="l" style="width:34%">Company</td><td class="l">ARTHAVEST INVESTMENT PRIVATE LIMITED</td></tr>
+    <tr><td class="l">Product</td><td class="l">KAWACH — portfolio and risk console</td></tr>
+    <tr><td class="l">Market focus</td><td class="l">Nepal Stock Exchange (NEPSE)</td></tr>
+   </tbody></table>
+  </section>
+  <p class="lede" style="margin-top:22px">Kawach is a working model, not a finished institutional system. Read the Method tab before relying on any figure it shows.</p>`;
+}
+
 /* ---------- controller ---------- */
 const $=id=>document.getElementById(id);
 let A=null;
@@ -626,7 +657,7 @@ function render(){
   const [t,s]=TITLES[st.view];$('title').textContent=t;$('subtitle').textContent=s;
   $('nav').innerHTML=NAVS.map(([k,l])=>`<button data-v="${k}" ${k===st.view?'aria-current="page"':''}>${l}</button>`).join('');
   const V=$('view');
-  V.innerHTML=({overview:vOverview,holdings:vHoldings,risk:vRisk,stress:vStress,market:vMarket,method:vMethod})[st.view](A);
+  V.innerHTML=({overview:vOverview,holdings:vHoldings,risk:vRisk,stress:vStress,market:vMarket,method:vMethod,about:vAbout})[st.view](A);
   const f=$('sfill');if(f){const sc=+f.dataset.score;requestAnimationFrame(()=>requestAnimationFrame(()=>{f.style.transform=`translateY(${240*(1-sc/100)}px)`}))}
   if(st.view==='stress'&&!A.empty)stressResult(A);
 }
