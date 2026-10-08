@@ -304,7 +304,7 @@ tfoot td{font-weight:600;border-top:1px solid var(--line);border-bottom:0}
       <div><h1 id="title"></h1><p class="sub" id="subtitle"></p></div>
       <div class="tape">
         <span class="pill"><span class="dot" id="dot"></span><span id="mstat">Market</span></span>
-        <span><span class="idx" id="tapeIdx"></span> <span id="tapeChg"></span><br><span style="color:var(--muted);font-size:12.5px" id="tapeDate"></span></span>
+        <span><span class="idx" id="tapeIdx"></span> <span id="tapeChg"></span> <span class="pill" id="livePill" style="display:none;padding:2px 9px;font-size:11.5px"><span class="dot on"></span>Live, unofficial feed</span><br><span style="color:var(--muted);font-size:12.5px" id="tapeDate"></span></span>
       </div>
     </div>
     <div id="view"></div>
@@ -711,6 +711,7 @@ function stressResult(a){
    <h3 style="margin-top:20px">By holding (Rs)</h3>${list}`;
 }
 
+let LIVE=null;
 function vMarket(a){
   const sectorRows=Object.entries(SECT_DAY).sort((x,y)=>y[1]-x[1]).map(([l,v])=>({l,v}));
   let implied='';
@@ -731,7 +732,7 @@ function vMarket(a){
    ['Capital gains tax','Individuals 7.5% under one year, 5% over one year; institutions 10%. Confirm against the latest Finance Act'],
    ['Listed companies','About 263 (March 2026)']];
   return `<div class="cols wide">
-   <div><h2>NEPSE on ${MKT.date}</h2><p class="lede">The index closed at <b>${f2.format(MKT.index)}</b>, ${MKT.chg>=0?'up':'down'} ${Math.abs(MKT.chg)} points (${sg(MKT.pct)}). Turnover was ${MKT.turnover} on ${MKT.volume}.</p>
+   <div>${LIVE?`<h2>NEPSE live</h2><p class="lede">The index is at <b>${f2.format(LIVE.index)}</b>, ${LIVE.chg>=0?'up':'down'} ${f2.format(Math.abs(LIVE.chg))} points (${sg(LIVE.pct)}) on the previous close${LIVE.time?', as of '+esc(LIVE.time):''}. This refreshes about every 30 seconds from an unofficial third-party data service, not from NEPSE, so treat it as indicative. Turnover on the ${MKT.date} close was ${MKT.turnover} on ${MKT.volume}.</p>`:`<h2>NEPSE on ${MKT.date}</h2><p class="lede">The index closed at <b>${f2.format(MKT.index)}</b>, ${MKT.chg>=0?'up':'down'} ${Math.abs(MKT.chg)} points (${sg(MKT.pct)}). Turnover was ${MKT.turnover} on ${MKT.volume}.</p>`}
     ${implied}<h3 style="margin-top:18px">Sector moves, last full breakdown (${SECT_DATE})</h3>${divBars(sectorRows,v=>(v>=0?'+':'\u2212')+Math.abs(v).toFixed(2)+'%')}</div>
    <div><h2>Biggest gainers, ${SECT_DATE}</h2><p class="lede">Symbols only, as listed on that day. Some are debentures or small-cap stocks with thin volume.</p>
     ${divBars(GAINERS.map(([l,v])=>({l,v})),v=>'+'+v.toFixed(2)+'%')}</div>
@@ -739,7 +740,7 @@ function vMarket(a){
   <section class="blk"><h2>Macro backdrop</h2><p class="lede">Latest figures published by Nepal Rastra Bank, as reported in June and July 2026.</p>
    <table class="kv"><tbody>${macro.map(m=>`<tr><td class="l">${m[0]}</td><td style="font-family:var(--serif);font-size:19px;text-align:left">${m[1]}</td><td class="l" style="color:var(--muted);white-space:normal">${m[2]}</td></tr>`).join('')}</tbody></table></section>
   <section class="blk"><h2>How the market works</h2><table class="kv"><tbody>${rules.map(r=>`<tr><td class="l" style="white-space:normal;width:34%">${r[0]}</td><td class="l" style="white-space:normal">${r[1]}</td></tr>`).join('')}</tbody></table></section>
-  <p class="lede" style="margin-top:22px">Sources: OnlineKhabar and Chukul (NEPSE close and sector changes), Nepal Rastra Bank monetary policy and macroeconomic reports, Nepal Stock Exchange. KAWACH is not connected to a live NEPSE feed, so the figures above are a dated snapshot and will not move on their own; only the session clock at the top of the page updates in real time.</p>`;
+  <p class="lede" style="margin-top:22px">Sources: OnlineKhabar and Chukul (NEPSE close and sector changes), Nepal Rastra Bank monetary policy and macroeconomic reports, Nepal Stock Exchange. ${LIVE?'The index level is pulled live from an unofficial third-party service that is not affiliated with NEPSE or ARTHAVEST; every other figure on this page is a dated snapshot and will not move on its own.':'KAWACH is not connected to a live NEPSE feed right now, so the figures above are a dated snapshot and will not move on their own; only the session clock at the top of the page updates in real time.'}</p>`;
 }
 
 function vMethod(){
@@ -1254,6 +1255,37 @@ function tick(){
 $('tapeIdx').textContent=f2.format(MKT.index);
 const tc=$('tapeChg');tc.textContent=sg(MKT.pct);tc.className=cls(MKT.pct);
 tick();setInterval(tick,30000);
+
+/* ---------- live NEPSE index (unofficial third-party feed, falls back to snapshot) ---------- */
+const LIVE_URL='https://nepseapi.surajrimal.dev/NepseIndex';
+function applyLive(){
+  if(!LIVE)return;
+  $('tapeIdx').textContent=f2.format(LIVE.index);
+  const c=$('tapeChg');c.textContent=sg(LIVE.pct);c.className=cls(LIVE.pct);
+  const p=$('livePill');p.style.display='';p.title='Pulled from an unofficial third-party service, not NEPSE. Refreshes about every 30 seconds.';
+}
+async function fetchLive(){
+  if(document.hidden)return;
+  const ctl=new AbortController(),to=setTimeout(()=>ctl.abort(),8000);
+  try{
+    const r=await fetch(LIVE_URL,{signal:ctl.signal,cache:'no-store'});
+    if(!r.ok)throw new Error('http '+r.status);
+    let d=await r.json();
+    if(d&&!Array.isArray(d)&&d.data&&d.currentValue==null&&d.close==null)d=d.data;
+    if(Array.isArray(d))d=d.find(x=>x&&(x.id===58||/nepse/i.test(String(x.index||''))))||d[0];
+    const num=v=>{const n=Number(v);return isFinite(n)?n:null};
+    const val=num(d&&(d.currentValue!=null?d.currentValue:d.close));
+    if(!val||val<MKT.index*0.5||val>MKT.index*2)throw new Error('implausible payload');
+    const prev=num(d.previousClose);
+    const chg=(prev&&prev>0)?val-prev:(num(d.change)||0);
+    const pct=(prev&&prev>0)?chg/prev:((num(d.perChange)||0)/100);
+    LIVE={index:val,chg,pct,time:d.generatedTime?String(d.generatedTime):null};
+    applyLive();
+    if(st.view==='market')render();
+  }catch(e){/* keep showing the snapshot */}
+  finally{clearTimeout(to)}
+}
+fetchLive();setInterval(fetchLive,30000);
 render();
 })();
 </script>
