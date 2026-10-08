@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KAWACH | ARTHAVEST INVESTMENT PRIVATE LIMITED</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&family=Noto+Serif+Devanagari:wght@500&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F2F4F8; --surface:#FFFFFF; --ink:#101B2D; --muted:#5A6679; --line:#DCE1EA;
+  --crimson:#B4213A; --pine:#17795A; --amber:#B0731A; --steel:#2F5D8C; --steel-soft:#A9BFD9;
+  --hero:#0F1A2C; --hero-ink:#F2F4F8; --hero-muted:#9FB0C8; --rail:#0B1424; --rail-ink:#DDE4EF;
+  --serif:'Newsreader',Georgia,'Times New Roman',serif;
+  --sans:'Public Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --deva:'Noto Serif Devanagari','Nirmala UI',serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0A111E; --surface:#121C2E; --ink:#E8ECF3; --muted:#93A0B5; --line:#243149;
+    --crimson:#E2586F; --pine:#3DBB8C; --amber:#E2A544; --steel:#78A6DA; --steel-soft:#2C4A6D;
+    --hero:#15233A; --rail:#070D18;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0A111E; --surface:#121C2E; --ink:#E8ECF3; --muted:#93A0B5; --line:#243149;
+  --crimson:#E2586F; --pine:#3DBB8C; --amber:#E2A544; --steel:#78A6DA; --steel-soft:#2C4A6D;
+  --hero:#15233A; --rail:#070D18;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);background:var(--bg)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 var(--sans);font-variant-numeric:tabular-nums;-webkit-text-size-adjust:100%}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--steel);outline-offset:2px;border-radius:4px}
+
+.app{display:grid;grid-template-columns:248px minmax(0,1fr);min-height:100vh}
+.rail{background:var(--rail);color:var(--rail-ink);padding:26px 18px 22px;display:flex;flex-direction:column;gap:26px;position:sticky;top:env(safe-area-inset-top,0px);align-self:start;max-height:100vh;overflow:auto}
+.brand{display:flex;gap:12px;align-items:center}
+.brand svg{width:38px;height:46px;flex:none}
+.brand .name{font:600 24px/1 var(--serif);letter-spacing:.06em}
+.brand .deva{font:500 15px/1.2 var(--deva);color:var(--hero-muted);margin-top:4px}
+.co{font-size:12.5px;line-height:1.4;color:var(--hero-muted)}
+.co b{display:block;color:var(--rail-ink);font-weight:600;font-size:13px;letter-spacing:.02em}
+.nav{display:flex;flex-direction:column;gap:2px}
+.nav button{background:none;border:0;text-align:left;padding:10px 12px;border-radius:8px;color:var(--rail-ink);cursor:pointer;font-weight:500;opacity:.78}
+.nav button:hover{opacity:1;background:rgba(255,255,255,.06)}
+.nav button[aria-current="page"]{opacity:1;background:rgba(255,255,255,.1);box-shadow:inset 3px 0 0 var(--crimson)}
+.railfoot{margin-top:auto;font-size:12px;color:var(--hero-muted);line-height:1.45}
+
+.main{padding:28px clamp(16px,3.2vw,44px) 56px;min-width:0}
+.top{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;flex-wrap:wrap;margin-bottom:22px}
+h1{font:500 clamp(28px,4vw,38px)/1.1 var(--serif);margin:0;letter-spacing:-.01em}
+.sub{color:var(--muted);margin:6px 0 0;max-width:62ch}
+.tape{display:flex;gap:18px;align-items:center;flex-wrap:wrap;font-size:13.5px}
+.tape .idx{font:500 20px/1 var(--serif)}
+.up{color:var(--pine)} .down{color:var(--crimson)}
+.pill{display:inline-flex;align-items:center;gap:7px;padding:5px 11px;border-radius:99px;background:var(--surface);border:1px solid var(--line);font-size:13px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--muted)}
+.dot.on{background:var(--pine)}
+
+.banner{background:color-mix(in srgb,var(--amber) 14%,var(--surface));border:1px solid color-mix(in srgb,var(--amber) 40%,var(--line));border-radius:10px;padding:10px 14px;font-size:13.5px;margin-bottom:22px}
+
+h2{font:500 22px/1.2 var(--serif);margin:0 0 4px}
+h3{font:600 15px/1.3 var(--sans);margin:0 0 8px}
+.lede{color:var(--muted);font-size:13.5px;margin:0 0 14px;max-width:70ch}
+section.blk{margin-top:38px}
+.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:36px}
+.cols.wide{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr)}
+
+/* hero */
+.hero{background:var(--hero);color:var(--hero-ink);border-radius:20px;padding:28px clamp(18px,3vw,40px);display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(20px,4vw,56px);align-items:center}
+.shield{width:clamp(170px,22vw,240px);height:auto;display:block}
+.shield .fillr{transition:transform 1.5s cubic-bezier(.2,.7,.2,1)}
+.sc-num{font:500 66px/1 var(--serif);fill:#fff;paint-order:stroke;stroke:rgba(9,16,29,.55);stroke-width:5px;stroke-linejoin:round}
+.sc-lab{font:500 13px var(--sans);fill:#fff;paint-order:stroke;stroke:rgba(9,16,29,.55);stroke-width:4px;stroke-linejoin:round}
+.hero .lab{color:var(--hero-muted);font-size:13.5px}
+.nav-val{font:500 clamp(34px,5vw,52px)/1.05 var(--serif);letter-spacing:-.015em;margin:2px 0 4px}
+.hero .pl{font-size:15px}
+.hero .up{color:#5FD3A3}.hero .down{color:#FF8CA0}
+.parts{margin-top:22px;display:grid;gap:11px}
+.part{display:grid;grid-template-columns:150px 1fr 34px;gap:12px;align-items:center;font-size:13.5px}
+.bar{height:7px;border-radius:9px;background:rgba(255,255,255,.14);overflow:hidden}
+.bar i{display:block;height:100%;border-radius:9px}
+.part .n{text-align:right;color:var(--hero-muted)}
+.hero .why{margin:16px 0 0;color:var(--hero-muted);font-size:12.5px;max-width:58ch}
+
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:26px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kpi{padding:16px 18px 16px 0}
+.kpi + .kpi{padding-left:18px;border-left:1px solid var(--line)}
+.kpi .v{font:500 26px/1.15 var(--serif)}
+.kpi .l{color:var(--muted);font-size:13px}
+.kpi .s{font-size:12.5px;color:var(--muted);margin-top:2px}
+
+/* alerts */
+.alerts{display:grid;gap:10px}
+.alert{display:grid;grid-template-columns:8px 1fr;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.alert::before{content:"";border-radius:8px;background:var(--crimson)}
+.alert.watch::before{background:var(--amber)}
+.alert.ok::before{background:var(--pine)}
+.alert b{display:block;font-weight:600}
+.alert span{color:var(--muted);font-size:13.5px}
+
+/* bars */
+.pair{display:grid;grid-template-columns:64px 1fr 92px;gap:10px;align-items:center;margin:7px 0;font-size:13.5px}
+.pair .tr{display:grid;gap:3px}
+.pair .tr i{display:block;height:8px;border-radius:5px;min-width:2px}
+.pair .w{background:var(--steel-soft)}
+.pair .r{background:var(--crimson)}
+.pair small{color:var(--muted);text-align:right;font-size:12.5px}
+.legend{display:flex;gap:16px;font-size:12.5px;color:var(--muted);margin-bottom:6px;flex-wrap:wrap}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.sec{display:grid;grid-template-columns:120px 1fr 96px;gap:10px;align-items:center;margin:8px 0;font-size:13.5px}
+.track{position:relative;height:14px;background:color-mix(in srgb,var(--line) 55%,transparent);border-radius:4px}
+.track .f{position:absolute;left:0;top:0;height:100%;border-radius:4px;background:var(--steel)}
+.track .f.hot{background:var(--crimson)}
+.track .ref{position:absolute;top:-3px;height:20px;width:2px;background:var(--ink);opacity:.7}
+.sec small{text-align:right;color:var(--muted)}
+.dv{display:grid;grid-template-columns:130px 1fr 64px;gap:10px;align-items:center;margin:7px 0;font-size:13.5px}
+.dv .ax{position:relative;height:14px}
+.dv .ax::after{content:"";position:absolute;left:50%;top:-2px;bottom:-2px;width:1px;background:var(--line)}
+.dv .ax i{position:absolute;top:0;height:100%;border-radius:3px}
+.dv small{text-align:right}
+
+/* tables */
+.tw{overflow-x:auto;max-width:100%}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th{font-weight:600;color:var(--muted);text-align:right;padding:8px 10px;border-bottom:1px solid var(--line);white-space:nowrap;font-size:12.5px}
+td{padding:8px 10px;border-bottom:1px solid color-mix(in srgb,var(--line) 60%,transparent);text-align:right;white-space:nowrap}
+th:first-child,td:first-child,th.l,td.l{text-align:left}
+td .nm{display:block;color:var(--muted);font-size:12px;max-width:190px;overflow:hidden;text-overflow:ellipsis}
+td input{width:90px;text-align:right;padding:5px 7px;border:1px solid var(--line);border-radius:6px;background:var(--surface)}
+td input.q{width:84px}
+.x{background:none;border:0;color:var(--muted);cursor:pointer;padding:4px 8px;border-radius:6px}
+.x:hover{color:var(--crimson);background:color-mix(in srgb,var(--crimson) 10%,transparent)}
+tfoot td{font-weight:600;border-top:1px solid var(--line);border-bottom:0}
+
+.form{display:flex;gap:10px;flex-wrap:wrap;align-items:end;margin-top:18px}
+.form label{display:grid;gap:4px;font-size:12.5px;color:var(--muted)}
+.form input,.form select,.field input,.field select{padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);min-width:0}
+.form input{width:120px}.form input.sym{width:130px}
+.btn{background:var(--ink);color:var(--bg);border:0;border-radius:8px;padding:9px 16px;font-weight:600;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line);font-weight:500}
+.btn:hover{filter:brightness(1.12)}
+.msg{font-size:13px;color:var(--crimson);min-height:18px;margin-top:6px}
+.field{display:flex;gap:8px;align-items:center;font-size:13.5px}
+
+/* stress */
+.scen{display:grid;gap:6px;align-content:start}
+.scen button{text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer}
+.scen button b{display:block;font-weight:600}
+.scen button span{color:var(--muted);font-size:12.5px}
+.scen button[aria-pressed="true"]{border-color:var(--crimson);box-shadow:inset 3px 0 0 var(--crimson)}
+.stress{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:34px;align-items:start}
+.big{font:500 40px/1.1 var(--serif)}
+.sl{display:grid;grid-template-columns:130px 1fr 48px;gap:10px;align-items:center;font-size:13px;margin:6px 0}
+.sl input[type=range]{width:100%;accent-color:var(--crimson)}
+.sl small{text-align:right;color:var(--muted)}
+
+/* corr */
+.heat{display:grid;gap:2px;font-size:11px;min-width:520px}
+.heat div{display:grid;place-items:center;height:26px;border-radius:3px}
+.heat .h{color:var(--muted);font-weight:600;background:none}
+
+.kv td:first-child{color:var(--muted)}
+.kv td{padding:10px}
+.director{display:grid;grid-template-columns:168px 1fr;gap:28px;align-items:start}
+.director img{width:168px;height:168px;border-radius:14px;object-fit:cover;box-shadow:0 6px 20px rgba(0,0,0,.18);border:1px solid var(--line)}
+.director .role{color:var(--muted);font-size:13px;margin:2px 0 12px}
+.director .nm{font:500 21px/1.2 var(--serif)}
+.director blockquote{margin:0 0 12px;padding-left:16px;border-left:3px solid var(--crimson);color:var(--ink)}
+.director p{max-width:62ch}
+.director .sign{color:var(--muted);font-size:13px;margin-top:10px}
+@media (max-width:560px){.director{grid-template-columns:1fr;justify-items:start}.director img{width:132px;height:132px}}
+.method p,.method li{max-width:72ch}
+.method ul{padding-left:20px}
+.foot{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:12.5px;max-width:80ch}
+.hist svg{width:100%;height:auto;display:block}
+.sr{position:absolute;left:-9999px}
+
+@media (max-width:1000px){
+  .cols,.cols.wide,.stress{grid-template-columns:minmax(0,1fr)}
+  .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .kpi:nth-child(3){border-left:0;padding-left:0}
+  .kpi:nth-child(n+3){border-top:1px solid var(--line)}
+}
+@media (max-width:900px){
+  .app{grid-template-columns:minmax(0,1fr)}
+  .rail{position:static;max-height:none;flex-direction:row;flex-wrap:wrap;align-items:center;gap:12px 20px;padding:16px 16px 10px}
+  .co,.railfoot{display:none}
+  .nav{flex-direction:row;overflow-x:auto;width:100%;gap:4px;padding-bottom:6px}
+  .nav button{white-space:nowrap;padding:8px 12px}
+  .nav button[aria-current="page"]{box-shadow:inset 0 -3px 0 var(--crimson)}
+  .hero{grid-template-columns:minmax(0,1fr);justify-items:center;text-align:center}
+  .hero .info{width:100%;text-align:left}
+}
+@media (max-width:560px){
+  .part{grid-template-columns:110px 1fr 30px}
+  .pair{grid-template-columns:54px 1fr 74px}
+  .sec{grid-template-columns:96px 1fr 74px}
+  .dv{grid-template-columns:96px 1fr 56px}
+  .sl{grid-template-columns:96px 1fr 44px}
+}
+@media (prefers-reduced-motion:reduce){.shield .fillr{transition:none}}
+
+/* ---- Nepal Top-50 ETF project banner (scoped, drop-in) ---- */
+.etf-banner{
+  --e-ink:#EEF1F6; --e-sub:#95A0B7; --e-sub-dim:#6E7891;
+  --e-panel-1:#0A0F1B; --e-panel-2:#111A2C;
+  --e-gold:#D2AA5C; --e-emerald:#22AC7D;
+  position:relative;width:100%;max-width:920px;border-radius:22px;padding:1px;
+  background:linear-gradient(135deg, rgba(210,170,92,.55), rgba(34,172,125,.12) 45%, rgba(210,170,92,.08) 100%);
+  isolation:isolate;font-family:'IBM Plex Sans',var(--sans);
+}
+.etf-banner::before{
+  content:"";position:absolute;inset:-40px;z-index:-1;
+  background:radial-gradient(420px 260px at 12% 10%, rgba(210,170,92,.16), transparent 60%),
+             radial-gradient(420px 300px at 92% 95%, rgba(34,172,125,.14), transparent 60%);
+  filter:blur(10px);
+}
+.etf-inner{
+  position:relative;overflow:hidden;border-radius:21px;
+  background:radial-gradient(600px 260px at 100% 0%, rgba(34,172,125,.10), transparent 55%),
+             radial-gradient(500px 260px at 0% 100%, rgba(210,170,92,.10), transparent 55%),
+             linear-gradient(160deg, var(--e-panel-2), var(--e-panel-1) 65%);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  display:grid;grid-template-columns:1fr 240px;
+  animation:etf-rise .7s cubic-bezier(.2,.7,.2,1) both;
+}
+@keyframes etf-rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.etf-inner{animation:none}}
+.etf-content{padding:clamp(26px,4vw,44px) clamp(24px,4vw,40px);min-width:0}
+.etf-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 13px 6px 10px;border-radius:99px;
+  background:rgba(210,170,92,.10);border:1px solid rgba(210,170,92,.35);color:var(--e-gold);font-size:12.5px;font-weight:500}
+.etf-dot{width:7px;height:7px;border-radius:50%;background:var(--e-gold);flex:none;
+  box-shadow:0 0 0 0 rgba(210,170,92,.55);animation:etf-pulse 2.2s ease-out infinite}
+@keyframes etf-pulse{0%{box-shadow:0 0 0 0 rgba(210,170,92,.5)}70%{box-shadow:0 0 0 8px rgba(210,170,92,0)}100%{box-shadow:0 0 0 0 rgba(210,170,92,0)}}
+@media (prefers-reduced-motion:reduce){.etf-dot{animation:none}}
+.etf-title{font-family:'Space Grotesk',sans-serif;color:var(--e-ink);font-size:clamp(26px,3.4vw,36px);font-weight:600;letter-spacing:-.01em;line-height:1.12;margin:16px 0 0}
+.etf-msg{color:var(--e-sub);font-size:15px;line-height:1.6;max-width:52ch;margin:12px 0 0}
+.etf-highlights{display:flex;flex-direction:column;gap:14px;margin:24px 0 0}
+.etf-hl{display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:flex-start}
+.etf-hl .ico{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;flex:none}
+.etf-hl.gold .ico{background:rgba(210,170,92,.12);border:1px solid rgba(210,170,92,.3)}
+.etf-hl.emerald .ico{background:rgba(34,172,125,.12);border:1px solid rgba(34,172,125,.32)}
+.etf-hl b{display:block;color:var(--e-ink);font-size:14.5px;font-weight:600}
+.etf-hl span{display:block;color:var(--e-sub-dim);font-size:13.5px;line-height:1.5;margin-top:2px;max-width:44ch}
+.etf-cta{margin:28px 0 0}
+.etf-btn{appearance:none;border:0;cursor:pointer;font-family:inherit;font-weight:600;font-size:14.5px;padding:13px 22px;border-radius:12px;
+  background:linear-gradient(135deg,#E4C077,var(--e-gold) 60%,#B5893F);color:#1B140A;transition:filter .15s ease, transform .15s ease}
+.etf-btn:hover{filter:brightness(1.08)}
+.etf-btn:active{transform:translateY(1px)}
+.etf-btn:focus-visible{outline:2px solid var(--e-gold);outline-offset:3px}
+.etf-inline{display:flex;gap:10px;flex-wrap:wrap;max-width:420px;margin-top:14px}
+.etf-inline input{flex:1 1 200px;min-width:0;padding:12px 14px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.14);color:var(--e-ink);font-size:14.5px;font-family:inherit}
+.etf-inline input::placeholder{color:var(--e-sub-dim)}
+.etf-inline input:focus-visible{outline:2px solid var(--e-emerald);outline-offset:1px}
+.etf-inline .etf-btn-solid{background:linear-gradient(135deg,#3BC495,var(--e-emerald) 65%,#157A5A);color:#08130F;flex:none}
+.etf-note{margin:12px 0 0;font-size:13.5px;color:var(--e-sub);min-height:1px}
+.etf-note.ok{color:var(--e-emerald)}
+.etf-note.err{color:#E28A8A}
+.etf-mark{position:relative;display:flex;align-items:center;justify-content:center;border-left:1px solid rgba(255,255,255,.06)}
+.etf-mark svg{width:82%;height:auto;max-width:210px}
+.etf-mark .num{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:92px;fill:url(#etfNumGrad)}
+.etf-mark .ring{fill:none;stroke:rgba(255,255,255,.10);stroke-width:1}
+.etf-mark .ring-acc{fill:none;stroke:var(--e-emerald);stroke-width:1.6;stroke-dasharray:3 7;stroke-linecap:round;opacity:.75}
+.etf-mark .cap{fill:var(--e-sub-dim);font-family:'IBM Plex Sans',sans-serif;font-size:11px;letter-spacing:.04em}
+@media (max-width:760px){.etf-inner{grid-template-columns:1fr}.etf-mark{display:none}}
+@media (max-width:420px){.etf-btn{width:100%}.etf-inline{max-width:none}.etf-inline .etf-btn-solid{width:100%}}
+.etf-sweep{transform-origin:110px 104px;animation:etf-spin 7s linear infinite}
+@keyframes etf-spin{to{transform:rotate(360deg)}}
+.etf-dots circle{transform-box:fill-box;transform-origin:center;animation:etf-twinkle 2.6s ease-in-out infinite}
+@keyframes etf-twinkle{0%,100%{opacity:.35;transform:scale(.8)}50%{opacity:1;transform:scale(1.2)}}
+.etf-pulse{transform-origin:110px 126px;animation:etf-breathe 3.2s ease-in-out infinite}
+@keyframes etf-breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.045)}}
+.re-shimmer{transform-origin:110px 104px;animation:re-sweep 5s linear infinite}
+@keyframes re-sweep{from{transform:rotate(-90deg)}to{transform:rotate(270deg)}}
+.re-windows rect{animation:re-twinkle 2.4s ease-in-out infinite}
+@keyframes re-twinkle{0%,100%{opacity:.22}50%{opacity:1}}
+.re-particles circle{transform-box:fill-box;transform-origin:center;animation:re-rise 4.6s ease-in infinite}
+@keyframes re-rise{0%{opacity:0;transform:translateY(0)}12%{opacity:1}100%{opacity:0;transform:translateY(-46px)}}
+@media (prefers-reduced-motion:reduce){.etf-sweep,.etf-dots circle,.etf-pulse,.re-shimmer,.re-windows rect,.re-particles circle,.gl-badge circle,.gl-spark{animation:none}}
+.gl-badge circle{transform-box:fill-box;transform-origin:center;animation:etf-twinkle 2.2s ease-in-out infinite}
+.gl-spark{stroke-dasharray:60;stroke-dashoffset:60;animation:gl-draw 3s ease-in-out infinite}
+@keyframes gl-draw{0%{stroke-dashoffset:60}50%{stroke-dashoffset:0}100%{stroke-dashoffset:-60}}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="rail">
+    <div class="brand">
+      <svg viewBox="0 0 200 240" aria-hidden="true"><path d="M100 8 L184 38 V112 C184 172 148 212 100 232 C52 212 16 172 16 112 V38 Z" fill="#B4213A"/><path d="M100 46 L100 196 M100 46 L152 68 V112 C152 150 128 178 100 192" fill="none" stroke="#fff" stroke-width="12" stroke-linejoin="round" stroke-linecap="round" opacity=".92"/></svg>
+      <div><div class="name">KAWACH</div><div class="deva">कवच</div></div>
+    </div>
+    <div class="co"><b>ARTHAVEST INVESTMENT PRIVATE LIMITED</b>Portfolio and risk console for Nepali markets</div>
+    <nav class="nav" id="nav" aria-label="Sections"></nav>
+    <div class="railfoot">Sample portfolio and model assumptions. Not investment advice.</div>
+  </aside>
+  <main class="main" id="main">
+    <div class="top">
+      <div><h1 id="title"></h1><p class="sub" id="subtitle"></p></div>
+      <div class="tape">
+        <span class="pill"><span class="dot" id="dot"></span><span id="mstat">Market</span></span>
+        <span><span class="idx" id="tapeIdx"></span> <span id="tapeChg"></span> <span class="pill" id="livePill" style="display:none;padding:2px 9px;font-size:11.5px"><span class="dot on" id="liveDot"></span><span id="liveTxt">Live, unofficial feed</span></span><br><span style="color:var(--muted);font-size:12.5px" id="tapeDate"></span></span>
+      </div>
+    </div>
+    <div id="view"></div>
+    <div class="foot">KAWACH by ARTHAVEST INVESTMENT PRIVATE LIMITED. Holdings, prices and risk parameters shown here are illustrative until you enter your own. Risk figures are model estimates, not forecasts, and this page is not investment advice.</div>
+  </main>
+</div>
+
+<script>
+(function(){
+'use strict';
+
+/* ---------- reference data ---------- */
+const SECT={
+ 'Commercial Banks':{vol:.27,beta:1.05,ref:.29,g:'F'},
+ 'Development Banks':{vol:.34,beta:1.10,ref:.03,g:'F'},
+ 'Finance':{vol:.36,beta:1.15,ref:.01,g:'F'},
+ 'Microfinance':{vol:.38,beta:1.15,ref:.04,g:'F'},
+ 'Life Insurance':{vol:.32,beta:1.10,ref:.07,g:'F'},
+ 'Non-Life Insurance':{vol:.32,beta:.95,ref:.02,g:'F'},
+ 'Investment':{vol:.30,beta:1.00,ref:.09,g:'F'},
+ 'Hydropower':{vol:.36,beta:1.10,ref:.13,g:'N'},
+ 'Hotels & Tourism':{vol:.32,beta:.90,ref:.02,g:'N'},
+ 'Manufacturing':{vol:.30,beta:.85,ref:.06,g:'N'},
+ 'Trading':{vol:.28,beta:.90,ref:.01,g:'N'},
+ 'Others':{vol:.25,beta:.70,ref:.11,g:'N'}
+};
+(function(){const t=Object.values(SECT).reduce((a,s)=>a+s.ref,0);Object.values(SECT).forEach(s=>s.ref/=t)})();
+const SECT_NAMES=Object.keys(SECT);
+
+// symbol, company, NEPSE sector, placeholder price (NPR). Prices are placeholders: enter your own LTP.
+const UNI_LIST=[
+ ['NABIL','Nabil Bank','Commercial Banks',520],['NICA','NIC Asia Bank','Commercial Banks',430],
+ ['SCBL','Standard Chartered Bank Nepal','Commercial Banks',560],['GBIME','Global IME Bank','Commercial Banks',210],
+ ['EBL','Everest Bank','Commercial Banks',640],['SANIMA','Sanima Bank','Commercial Banks',300],
+ ['ADBL','Agricultural Development Bank','Commercial Banks',340],
+ ['UPPER','Upper Tamakoshi Hydropower','Hydropower',410],['CHCL','Chilime Hydropower','Hydropower',520],
+ ['NHPC','National Hydro Power','Hydropower',215],['AKPL','Arun Kabeli Power','Hydropower',300],
+ ['BPCL','Butwal Power Company','Hydropower',550],
+ ['NLIC','Nepal Life Insurance','Life Insurance',700],['LICN','Life Insurance Corporation Nepal','Life Insurance',800],
+ ['ALICL','Asian Life Insurance','Life Insurance',500],
+ ['NICL','Nepal Insurance Company','Non-Life Insurance',780],['SICL','Shikhar Insurance','Non-Life Insurance',500],
+ ['CBBL','Chhimek Laghubitta','Microfinance',1400],['SKBBL','Sana Kisan Bikas Laghubitta','Microfinance',1100],
+ ['MNBBL','Muktinath Bikas Bank','Development Banks',800],['GBBL','Garima Bikas Bank','Development Banks',780],
+ ['GFCL','Goodwill Finance','Finance',400],
+ ['SHL','Soaltee Hotel','Hotels & Tourism',460],['TRH','Taragaon Regency Hotel','Hotels & Tourism',350],
+ ['HDL','Himalayan Distillery','Manufacturing',2000],['SHIVM','Shivam Cements','Manufacturing',420],
+ ['UNL','Unilever Nepal','Manufacturing',22000],
+ ['STC','Salt Trading Corporation','Trading',3800],
+ ['CIT','Citizen Investment Trust','Investment',2300],['HIDCL','Hydroelectricity Investment & Development','Investment',430],
+ ['NTC','Nepal Telecom','Others',850]
+];
+const UNI={};UNI_LIST.forEach(([s,n,sec,p])=>UNI[s]={n,sector:sec,price:p});
+
+// [symbol, quantity, average cost]
+const SAMPLE=[['NABIL',6000,545],['NICA',8000,410],['SCBL',3000,520],['GBIME',9000,225],['NLIC',4000,640],
+ ['UPPER',12000,330],['CHCL',6000,540],['NHPC',12000,205],['CBBL',700,1500],['HDL',300,2150],
+ ['NTC',1200,830],['CIT',350,2200],['SHIVM',2500,440]];
+
+// NEPSE close, Monday 28 Sep 2026 (OnlineKhabar). Sector day changes are the last full breakdown available, Thursday 24 Sep 2026 (Chukul).
+const MKT={date:'28 Sep 2026',index:2613.33,chg:-16.47,pct:-.0062,turnover:'Rs 5.39 Arba',volume:'1.32 Cr shares'};
+const SECT_DATE='24 Sep 2026';
+const SECT_DAY={'Manufacturing':1.84,'Trading':.97,'Life Insurance':.71,'Microfinance':.62,'Commercial Banks':.46,'Hotels & Tourism':.13,'Hydropower':.13,'Finance':.11,'Investment':.11,'Others':.05,'Development Banks':.01,'Non-Life Insurance':-.33};
+const GAINERS=[['NLO',12.47],['SONA',7.65],['KSY',7.56],['GCIL',7.07],['CYCL',6.47]];
+const DIRECTOR_PHOTO="data:image/jpeg;base64,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";
+
+/* ---------- state ---------- */
+function load(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
+function save(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+function sampleHoldings(){return SAMPLE.map(([sym,qty,cost])=>({sym,qty,cost,ltp:UNI[sym].price}))}
+const st={
+  holdings:(function(){const h=load('kawach:h',null);return Array.isArray(h)&&h.length?h:sampleHoldings()})(),
+  limits:load('kawach:l',null)||{stock:.12,sector:.35,top3:.45,var:.03},
+  tax:load('kawach:t',.10),
+  view:'overview',scen:'bear',custom:{}
+};
+const persist=()=>{save('kawach:h',st.holdings);save('kawach:l',st.limits);save('kawach:t',st.tax)};
+
+/* ---------- format ---------- */
+const fIN=new Intl.NumberFormat('en-IN',{maximumFractionDigits:0});
+const f2=new Intl.NumberFormat('en-IN',{minimumFractionDigits:2,maximumFractionDigits:2});
+function npr(v){const a=Math.abs(v),s=v<0?'\u2212':'';
+  if(a>=1e9)return s+'Rs '+(a/1e9).toFixed(2)+' Arba';
+  if(a>=1e7)return s+'Rs '+(a/1e7).toFixed(2)+' Cr';
+  if(a>=1e5)return s+'Rs '+(a/1e5).toFixed(2)+' L';
+  return s+'Rs '+fIN.format(Math.round(a));}
+const nprF=v=>(v<0?'\u2212':'')+'Rs '+fIN.format(Math.abs(Math.round(v)));
+const pc=(x,d=1)=>(x*100).toFixed(d)+'%';
+const sg=(x,d=2)=>(x>=0?'+':'\u2212')+Math.abs(x*100).toFixed(d)+'%';
+const cls=x=>x>=0?'up':'down';
+const clamp=(x,a=0,b=100)=>Math.max(a,Math.min(b,x));
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* ---------- analytics ---------- */
+function meta(h){const u=UNI[h.sym];return {name:u?u.n:(h.name||h.sym),sector:u?u.sector:(h.sector&&SECT[h.sector]?h.sector:'Others')}}
+function rho(a,b){if(a.sym===b.sym)return 1;if(a.sector===b.sector)return .75;return SECT[a.sector].g===SECT[b.sector].g?.55:.45}
+const DAYS=240;
+
+function analyze(){
+  const H=st.holdings.map(h=>{const m=meta(h),S=SECT[m.sector];
+    return {sym:h.sym,qty:+h.qty||0,cost:+h.cost||0,ltp:+h.ltp||0,name:m.name,sector:m.sector,vol:S.vol,beta:S.beta,
+      value:(+h.qty||0)*(+h.ltp||0),basis:(+h.qty||0)*(+h.cost||0)}});
+  const V=H.reduce((a,h)=>a+h.value,0);
+  if(!H.length||V<=0)return {H,V:0,empty:true};
+  H.forEach(h=>h.w=h.value/V);
+  const n=H.length,cov=[];
+  for(let i=0;i<n;i++){cov.push([]);for(let j=0;j<n;j++)cov[i][j]=rho(H[i],H[j])*H[i].vol*H[j].vol}
+  const sw=cov.map(r=>r.reduce((a,c,j)=>a+c*H[j].w,0));
+  const varA=H.reduce((a,h,i)=>a+h.w*sw[i],0),volA=Math.sqrt(varA),volD=volA/Math.sqrt(DAYS);
+  H.forEach((h,i)=>{h.rc=h.w*sw[i]/varA;h.pnl=h.value-h.basis});
+  const beta=H.reduce((a,h)=>a+h.w*h.beta,0);
+  const hhi=H.reduce((a,h)=>a+h.w*h.w,0);
+  const sorted=[...H].sort((a,b)=>b.w-a.w);
+  const top3=sorted.slice(0,3).reduce((a,h)=>a+h.w,0);
+  const secMap={};H.forEach(h=>secMap[h.sector]=(secMap[h.sector]||0)+h.w);
+  const secList=Object.entries(secMap).map(([s,w])=>({s,w})).sort((a,b)=>b.w-a.w);
+  const a={H,V,n,cov,volA,volD,beta,hhi,effN:1/hhi,top3,secList,secMap,
+    var95:1.645*volD*V,var99:2.326*volD*V,pnl:H.reduce((x,h)=>x+h.pnl,0),basis:H.reduce((x,h)=>x+h.basis,0)};
+  a.alerts=buildAlerts(a);a.score=score(a);return a;
+}
+
+function buildAlerts(a){
+  const L=st.limits,out=[];
+  a.H.forEach(h=>{if(h.w>L.stock){const ex=h.value-L.stock*a.V,sh=Math.ceil(ex/h.ltp);
+    out.push({kind:'breach',t:`${h.sym} is ${pc(h.w)} of the portfolio`,d:`Your single-stock limit is ${pc(L.stock,0)}. Selling about ${fIN.format(sh)} shares (${npr(sh*h.ltp)}) brings it back inside.`})}});
+  a.secList.forEach(x=>{if(x.w>L.sector){const ex=(x.w-L.sector)*a.V;
+    out.push({kind:'breach',t:`${x.s} is ${pc(x.w)} of the portfolio`,d:`Your sector limit is ${pc(L.sector,0)}. Reducing the sector by about ${npr(ex)} restores the limit.`})}});
+  if(a.top3>L.top3)out.push({kind:'breach',t:`Top three holdings make up ${pc(a.top3)}`,d:`Your limit is ${pc(L.top3,0)}. Spread new money away from ${[...a.H].sort((p,q)=>q.w-p.w).slice(0,3).map(h=>h.sym).join(', ')}.`});
+  const v=a.var95/a.V;
+  if(v>L.var)out.push({kind:'breach',t:`One-day 95% VaR is ${pc(v,2)} of value`,d:`Your limit is ${pc(L.var,1)}. Lowering beta or trimming the highest risk contributors will bring it down.`});
+  a.H.forEach(h=>{if(h.rc>.15&&h.rc>1.4*h.w)out.push({kind:'watch',t:`${h.sym} adds more risk than its size suggests`,d:`It is ${pc(h.w)} of value but ${pc(h.rc)} of portfolio risk, because it moves with the rest of your ${h.sector.toLowerCase()} holdings.`})});
+  a.H.forEach(h=>{if(h.basis>0&&h.pnl/h.basis<-.2)out.push({kind:'watch',t:`${h.sym} is ${pc(-h.pnl/h.basis,0)} below your cost`,d:`Unrealised loss of ${nprF(-h.pnl)}. Review whether the original reason to hold still applies.`})});
+  return out.sort((x,y)=>(x.kind==='breach'?0:1)-(y.kind==='breach'?0:1));
+}
+
+function score(a){
+  const div=clamp(100*(a.effN-2)/10),vol=clamp(100*(.40-a.volA)/.25),
+    sec=clamp(100*(1-(a.secList[0].w-.20)/.45)),bet=clamp(100*(1.4-a.beta)/.7);
+  const br=a.alerts.filter(x=>x.kind==='breach').length,pen=Math.min(15,3*br);
+  return {total:Math.round(clamp(.30*div+.25*vol+.25*sec+.20*bet-pen)),pen,br,
+    parts:[['Diversification',div],['Volatility',vol],['Sector balance',sec],['Market sensitivity',bet]]};
+}
+
+function mulberry(s){return function(){s|=0;s=s+0x6D2B79F5|0;let t=Math.imul(s^s>>>15,1|s);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function chol(M){const n=M.length,L=Array.from({length:n},()=>new Array(n).fill(0));
+  for(let i=0;i<n;i++)for(let j=0;j<=i;j++){let s=M[i][j];for(let k=0;k<j;k++)s-=L[i][k]*L[j][k];
+    if(i===j)L[i][i]=Math.sqrt(Math.max(s,1e-12));else L[i][j]=s/L[j][j]}
+  return L}
+function monteCarlo(a,days=21,N=4000){
+  const sc=days/DAYS,C=a.cov.map(r=>r.map(x=>x*sc)),L=chol(C),rng=mulberry(20260928),n=a.n,out=new Array(N);
+  for(let s=0;s<N;s++){const z=new Array(n);
+    for(let i=0;i<n;i+=2){const u=Math.max(rng(),1e-12),v=rng(),r=Math.sqrt(-2*Math.log(u));z[i]=r*Math.cos(2*Math.PI*v);if(i+1<n)z[i+1]=r*Math.sin(2*Math.PI*v)}
+    let p=0;for(let i=0;i<n;i++){let r=0;for(let k=0;k<=i;k++)r+=L[i][k]*z[k];p+=a.H[i].value*r}
+    out[s]=p}
+  out.sort((x,y)=>x-y);
+  return {pnl:out,q05:out[Math.floor(.05*N)],q01:out[Math.floor(.01*N)]};
+}
+
+/* ---------- technical screener: 200-day EMA crossover ---------- */
+function strHash(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
+function genSeries(sym,days=260){
+  const u=UNI[sym],sect=SECT[u.sector],dailySig=sect.vol/Math.sqrt(252),rng=mulberry(strHash(sym)^0x9E3779B9);
+  const path=[100];
+  for(let i=1;i<days;i++){const uu=Math.max(rng(),1e-12),v=rng(),z=Math.sqrt(-2*Math.log(uu))*Math.cos(2*Math.PI*v);
+    path.push(path[i-1]*Math.exp(z*dailySig-.5*dailySig*dailySig))}
+  const scale=u.price/path[days-1];
+  return path.map(p=>p*scale);
+}
+function ema200(series){
+  const period=200,k=2/(period+1);
+  if(series.length<period)return new Array(series.length).fill(null);
+  let sma=0;for(let i=0;i<period;i++)sma+=series[i];sma/=period;
+  const out=new Array(series.length).fill(null);out[period-1]=sma;
+  for(let i=period;i<series.length;i++)out[i]=series[i]*k+out[i-1]*(1-k);
+  return out;
+}
+function detectCross(series,ema,lookback=10){
+  const n=series.length;
+  for(let i=n-1;i>=Math.max(200,n-lookback);i--){
+    if(ema[i]==null||ema[i-1]==null)continue;
+    const now=series[i]-ema[i],prev=series[i-1]-ema[i-1];
+    if(prev<=0&&now>0)return{type:'buy',idx:i,ago:n-1-i};
+    if(prev>=0&&now<0)return{type:'sell',idx:i,ago:n-1-i};
+  }
+  return null;
+}
+function screenerData(){
+  const days=260;
+  const rows=UNI_LIST.map(([sym,name,sector])=>{
+    const series=genSeries(sym,days),ema=ema200(series),cross=detectCross(series,ema,10);
+    const last=series[days-1],lastEma=ema[days-1],distPct=(last-lastEma)/lastEma;
+    return {sym,name,sector,last,lastEma,distPct,cross,series,ema};
+  });
+  const signals=rows.filter(r=>r.cross).sort((a,b)=>a.cross.ago-b.cross.ago);
+  const watch=rows.filter(r=>!r.cross&&Math.abs(r.distPct)<=.015).sort((a,b)=>Math.abs(a.distPct)-Math.abs(b.distPct));
+  return {rows,signals,watch};
+}
+function sparkSVG(series,ema,crossAgo){
+  const N=series.length,take=Math.min(140,N),start=N-take;
+  const s=series.slice(start),e=ema.slice(start).map((v,i)=>v==null?s[i]:v);
+  const all=s.concat(e),lo=Math.min(...all),hi=Math.max(...all),W=640,H=170,pb=18;
+  const X=i=>i/(take-1)*W,Y=v=>H-pb-((v-lo)/(hi-lo||1))*(H-pb-6);
+  const path=arr=>arr.map((v,i)=>`${i===0?'M':'L'}${X(i).toFixed(1)},${Y(v).toFixed(1)}`).join(' ');
+  const crossX=crossAgo!=null&&crossAgo<take?X(take-1-crossAgo):null;
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Price against 200-day EMA">
+   <path d="${path(e)}" fill="none" stroke="var(--muted)" stroke-width="1.6" stroke-dasharray="5 4"/>
+   <path d="${path(s)}" fill="none" stroke="var(--steel)" stroke-width="2.2"/>
+   ${crossX!=null?`<line x1="${crossX.toFixed(1)}" x2="${crossX.toFixed(1)}" y1="4" y2="${H-pb}" stroke="var(--crimson)" stroke-width="1.5" stroke-dasharray="3 3"/>`:''}
+   <text x="2" y="14" font-size="11" fill="var(--muted)" font-family="var(--sans)">Price</text>
+   <text x="2" y="${H-4}" font-size="11" fill="var(--muted)" font-family="var(--sans)">200 EMA (dashed)</text></svg>`;
+}
+
+/* ---------- scenarios ---------- */
+const SCEN={
+ bear:{name:'Bear market',d:'NEPSE falls 30%. Each sector moves by its beta.',fn:h=>-.30*h.beta},
+ rate:{name:'NRB raises rates by 100 bps',d:'Banks, finance and leveraged sectors take the hit.',
+   map:{'Commercial Banks':-6,'Development Banks':-10,'Finance':-12,'Microfinance':-12,'Life Insurance':-5,'Non-Life Insurance':-4,'Investment':-8,'Hydropower':-8,'Hotels & Tourism':-6,'Manufacturing':-4,'Trading':-5,'Others':-3}},
+ monsoon:{name:'Poor monsoon, weak hydropower output',d:'Lower river flow cuts generation and sentiment.',
+   map:{'Hydropower':-15,'Investment':-6,'Commercial Banks':-2,'Development Banks':-2,'Finance':-2}},
+ remit:{name:'Remittance slowdown',d:'Household income and deposits weaken.',
+   map:{'Microfinance':-12,'Commercial Banks':-6,'Development Banks':-8,'Finance':-8,'Trading':-6,'Hotels & Tourism':-5,'Life Insurance':-3,'Manufacturing':-3}},
+ margin:{name:'Margin-lending curbs',d:'Share-backed loans tighten and speculative demand fades.',
+   map:{'Commercial Banks':-8,'Development Banks':-10,'Finance':-12,'Microfinance':-10,'Life Insurance':-8,'Non-Life Insurance':-8,'Investment':-10,'Hydropower':-12,'Hotels & Tourism':-8,'Manufacturing':-8,'Trading':-8,'Others':-6}},
+ custom:{name:'Build your own',d:'Set a move for each sector you hold.'}
+};
+function shockFor(key,h){
+  if(key==='bear')return SCEN.bear.fn(h);
+  if(key==='custom')return (st.custom[h.sector]||0)/100;
+  return (SCEN[key].map[h.sector]||0)/100;
+}
+
+/* ---------- small renderers ---------- */
+function shieldSVG(score,color){
+  const p='M100 8 L184 38 V112 C184 172 148 212 100 232 C52 212 16 172 16 112 V38 Z';
+  return `<svg class="shield" viewBox="0 0 200 240" role="img" aria-label="Kawach score ${score} out of 100">
+   <defs><clipPath id="sclip"><path d="${p}"/></clipPath></defs>
+   <path d="${p}" fill="rgba(255,255,255,.06)"/>
+   <g clip-path="url(#sclip)"><rect class="fillr" id="sfill" x="0" y="0" width="200" height="240" fill="${color}" opacity=".92" style="transform:translateY(240px)" data-score="${score}"/></g>
+   <path d="${p}" fill="none" stroke="rgba(255,255,255,.6)" stroke-width="3"/>
+   <text x="100" y="130" text-anchor="middle" class="sc-num">${score}</text>
+   <text x="100" y="158" text-anchor="middle" class="sc-lab">out of 100</text></svg>`;
+}
+function histSVG(m,V){
+  const p=m.pnl,N=p.length,lo=p[Math.floor(.005*N)],hi=p[Math.floor(.995*N)],B=44,W=640,H=190,pb=30,bw=(hi-lo)/B,c=new Array(B).fill(0);
+  p.forEach(x=>{if(x<lo||x>hi)return;c[Math.min(B-1,Math.floor((x-lo)/bw))]++});
+  const mx=Math.max(...c),X=v=>(v-lo)/(hi-lo)*W,bars=c.map((k,i)=>{const x0=lo+i*bw,h=k/mx*(H-pb-8),bad=x0+bw<=m.q05;
+    return `<rect x="${(i*W/B+1).toFixed(1)}" y="${(H-pb-h).toFixed(1)}" width="${(W/B-2).toFixed(1)}" height="${h.toFixed(1)}" rx="2" fill="${bad?'var(--crimson)':'var(--steel-soft)'}"/>`}).join('');
+  const zx=X(0),qx=X(m.q05);
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Distribution of 21-day profit and loss">${bars}
+   <line x1="${zx}" x2="${zx}" y1="4" y2="${H-pb}" stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="4 3" opacity=".6"/>
+   <line x1="${qx}" x2="${qx}" y1="4" y2="${H-pb}" stroke="var(--crimson)" stroke-width="2"/>
+   <text x="${Math.min(qx+6,W-150)}" y="16" font-size="12" fill="var(--crimson)" font-family="var(--sans)">5% worst case: ${npr(m.q05)}</text>
+   <text x="2" y="${H-8}" font-size="12" fill="var(--muted)" font-family="var(--sans)">${npr(lo)}</text>
+   <text x="${zx}" y="${H-8}" font-size="12" text-anchor="middle" fill="var(--muted)" font-family="var(--sans)">No change</text>
+   <text x="${W-2}" y="${H-8}" font-size="12" text-anchor="end" fill="var(--muted)" font-family="var(--sans)">+${npr(hi).replace('Rs ','Rs ')}</text></svg>`;
+}
+function divBars(items,fmtv){
+  const mx=Math.max(...items.map(i=>Math.abs(i.v)),.0001);
+  return items.map(i=>{const w=Math.abs(i.v)/mx*50,pos=i.v>=0;
+    return `<div class="dv"><span>${esc(i.l)}</span><div class="ax"><i style="${pos?'left:50%':'right:50%'};width:${w}%;background:var(--${pos?'pine':'crimson'})"></i></div><small class="${cls(i.v)}">${fmtv(i.v)}</small></div>`}).join('');
+}
+
+/* ---------- views ---------- */
+const TITLES={
+ overview:['Overview','How well is the portfolio protected, and what needs attention first.'],
+ holdings:['Holdings','Edit quantities, cost and last traded price. Everything else recalculates.'],
+ risk:['Risk','Value at risk, where the risk comes from, and your limits.'],
+ stress:['Stress tests','See what specific shocks would do to your holdings, in rupees.'],
+ market:['Nepal market','NEPSE, the central bank and the rules that shape your trades.'],
+ method:['Method','How every number on these screens is calculated.'],
+ about:['About us','Who builds and stands behind Kawach.'],
+ screener:['Technical screener','Stocks that just crossed the 200-day EMA — buy on the way up, sell on the way down.'],
+ project:['Upcoming project','What ARTHAVEST is building next for Nepali investors.']
+};
+const NAVS=[['overview','Overview'],['holdings','Holdings'],['risk','Risk'],['stress','Stress tests'],['market','Nepal market'],['screener','Technical screener'],['method','Method'],['about','About us'],['project','Upcoming project']];
+
+function emptyView(){return `<div class="banner">Your portfolio is empty. Add a holding below to see risk figures.</div>`+addForm()}
+
+function vOverview(a){
+  if(a.empty)return emptyView();
+  const s=a.score,col=s.total>=75?'#2FA377':s.total>=55?'#D9A03A':'#D64560',mc=monteCarlo(a);a.mc=mc;
+  const pl=a.pnl,plp=a.basis?pl/a.basis:0;
+  const partsHTML=s.parts.map(([n,v])=>`<div class="part"><span>${n}</span><div class="bar"><i style="width:${v.toFixed(0)}%;background:${v>=70?'#2FA377':v>=45?'#D9A03A':'#D64560'}"></i></div><span class="n">${v.toFixed(0)}</span></div>`).join('');
+  const rows=[...a.H].sort((x,y)=>y.rc-x.rc).slice(0,10),mxr=Math.max(...rows.map(h=>Math.max(h.w,h.rc)));
+  const pairs=rows.map(h=>`<div class="pair"><b>${h.sym}</b><div class="tr"><i class="w" style="width:${h.w/mxr*100}%"></i><i class="r" style="width:${h.rc/mxr*100}%"></i></div><small>${pc(h.w,0)} / ${pc(h.rc,0)}</small></div>`).join('');
+  const secs=SECT_NAMES.filter(n=>a.secMap[n]||SECT[n].ref>.04).map(n=>({n,w:a.secMap[n]||0,r:SECT[n].ref})).sort((x,y)=>y.w-x.w);
+  const secHTML=secs.map(x=>{const mx=.6;return `<div class="sec"><span>${x.n}</span><div class="track"><div class="f ${x.w>st.limits.sector?'hot':''}" style="width:${Math.min(x.w/mx,1)*100}%"></div><div class="ref" style="left:${x.r/mx*100}%" title="Reference weight ${pc(x.r,0)}"></div></div><small>${pc(x.w,1)}</small></div>`}).join('');
+  const al=a.alerts.length?a.alerts.map(x=>`<div class="alert ${x.kind}"><div><b>${esc(x.t)}</b><span>${esc(x.d)}</span></div></div>`).join(''):`<div class="alert ok"><div><b>Everything is inside your limits</b><span>No limit breaches and no holdings flagged for review.</span></div></div>`;
+  const why=s.br?`Score includes a ${s.pen}-point deduction for ${s.br} limit ${s.br>1?'breaches':'breach'}.`:'No limit breaches.';
+  return `
+  <section class="hero">
+    ${shieldSVG(s.total,col)}
+    <div class="info">
+      <div class="lab">Portfolio value</div>
+      <div class="nav-val">${nprF(a.V)}</div>
+      <div class="pl ${cls(pl)}">${pl>=0?'+':'\u2212'}${nprF(Math.abs(pl)).replace('\u2212','')} unrealised (${sg(plp,1)}) on cost of ${npr(a.basis)}</div>
+      <div class="parts">${partsHTML}</div>
+      <p class="why">Kawach score blends the four measures above. ${why}</p>
+    </div>
+  </section>
+  <div class="kpis">
+    <div class="kpi"><div class="l">One-day loss, 95% confidence</div><div class="v">${npr(a.var95)}</div><div class="s">${pc(a.var95/a.V,2)} of value</div></div>
+    <div class="kpi"><div class="l">One-month 5% worst case</div><div class="v">${npr(-mc.q05)}</div><div class="s">${pc(-mc.q05/a.V,1)} of value, simulated</div></div>
+    <div class="kpi"><div class="l">Beta to NEPSE</div><div class="v">${a.beta.toFixed(2)}</div><div class="s">${a.beta>1?'Moves more than the index':'Moves less than the index'}</div></div>
+    <div class="kpi"><div class="l">Effective number of holdings</div><div class="v">${a.effN.toFixed(1)}</div><div class="s">of ${a.n} held</div></div>
+  </div>
+  <section class="blk"><h2>Needs attention</h2><p class="lede">Limit breaches come first, then holdings worth a second look. Edit your limits under Risk.</p><div class="alerts">${al}</div></section>
+  <section class="blk cols wide">
+    <div><h2>Where the risk comes from</h2><p class="lede">Ten largest risk contributors. A holding that sits high in red but short in blue is riskier than its size.</p>
+      <div class="legend"><span><i style="background:var(--steel-soft)"></i>Share of value</span><span><i style="background:var(--crimson)"></i>Share of risk</span></div>${pairs}</div>
+    <div><h2>Sector exposure</h2><p class="lede">The dark tick marks a rough NEPSE reference weight.</p>${secHTML}</div>
+  </section>
+  <section class="blk"><h2>One-month outlook</h2><p class="lede">4,000 simulated months using your holdings and the correlation model. The red bars are the worst 5% of outcomes.</p><div class="hist">${histSVG(mc,a.V)}</div></section>`;
+}
+
+function addForm(){
+  return `<form class="form" id="addf" autocomplete="off" onsubmit="return false">
+    <label>Symbol<input class="sym" id="fs" list="syms" placeholder="NABIL"></label>
+    <datalist id="syms">${UNI_LIST.map(u=>`<option value="${u[0]}">${esc(u[1])}</option>`).join('')}</datalist>
+    <label>Quantity<input id="fq" type="number" min="1" inputmode="numeric" placeholder="100"></label>
+    <label>Average cost (Rs)<input id="fc" type="number" min="0" step="0.01" inputmode="decimal"></label>
+    <label>Last price (Rs)<input id="fp" type="number" min="0" step="0.01" inputmode="decimal"></label>
+    <label>Sector<select id="fx">${SECT_NAMES.map(n=>`<option>${n}</option>`).join('')}</select></label>
+    <button class="btn" id="fadd" type="button">Add holding</button>
+  </form><div class="msg" id="fmsg" role="status"></div>`;
+}
+
+function vHoldings(a){
+  const rate=st.tax;
+  const rows=a.empty?'':a.H.map((h,i)=>{const gain=Math.max(0,h.pnl),tax=gain*rate;
+    return `<tr data-i="${i}"><td><b>${h.sym}</b><span class="nm">${esc(h.name)}</span></td><td class="l">${h.sector}</td>
+    <td><input class="q" type="number" min="0" data-k="qty" value="${h.qty}" aria-label="${h.sym} quantity"></td>
+    <td><input type="number" min="0" step="0.01" data-k="cost" value="${h.cost}" aria-label="${h.sym} average cost"></td>
+    <td><input type="number" min="0" step="0.01" data-k="ltp" value="${h.ltp}" aria-label="${h.sym} last price"></td>
+    <td data-c="val">${nprF(h.value)}</td><td data-c="w">${pc(h.w)}</td>
+    <td data-c="pl" class="${cls(h.pnl)}">${nprF(h.pnl)} (${h.basis?sg(h.pnl/h.basis,1):'-'})</td>
+    <td data-c="tax">${nprF(tax)}</td>
+    <td><button class="x" data-del="${i}" aria-label="Remove ${h.sym}">Remove</button></td></tr>`}).join('');
+  const foot=a.empty?'':`<tfoot><tr><td>Total</td><td></td><td></td><td></td><td></td><td id="tv">${nprF(a.V)}</td><td>100%</td><td id="tp" class="${cls(a.pnl)}">${nprF(a.pnl)}</td><td id="tt">${nprF(a.H.reduce((x,h)=>x+Math.max(0,h.pnl)*rate,0))}</td><td></td></tr></tfoot>`;
+  return `<div class="banner">This is a sample portfolio. Last prices are placeholders, so type in today's closing prices from NEPSE or your TMS before relying on any figure.</div>
+  <div class="field" style="margin-bottom:12px"><label for="taxsel">Capital gains tax used for the estimate</label>
+    <select id="taxsel"><option value="0.10" ${rate===.10?'selected':''}>10% (institution)</option><option value="0.075" ${rate===.075?'selected':''}>7.5% (individual, under 1 year)</option><option value="0.05" ${rate===.05?'selected':''}>5% (individual, over 1 year)</option></select></div>
+  ${a.empty?'':`<div class="tw"><table><thead><tr><th class="l">Holding</th><th class="l">Sector</th><th>Quantity</th><th>Avg cost (Rs)</th><th>Last price (Rs)</th><th>Value</th><th>Weight</th><th>Unrealised P&amp;L</th><th>Tax if sold</th><th></th></tr></thead><tbody>${rows}</tbody>${foot}</table></div>`}
+  <h2 style="margin-top:34px">Add a holding</h2><p class="lede">Pick a listed symbol to fill the sector and a placeholder price. For a symbol not in the list, type it and choose its sector.</p>
+  ${addForm()}
+  <div style="margin-top:26px"><button class="btn ghost" id="reset">Reset to sample portfolio</button></div>`;
+}
+
+function vRisk(a){
+  if(a.empty)return emptyView();
+  const mc=monteCarlo(a),L=st.limits,v95=a.var95/a.V;
+  const lim=(lab,key,val,unit)=>`<tr><td class="l">${lab}</td><td><input type="number" step="0.5" min="1" max="100" data-lim="${key}" value="${(L[key]*100).toFixed(1).replace(/\.0$/,'')}" aria-label="${lab}"> %</td><td>${unit}</td><td class="${val>L[key]?'down':'up'}">${val>L[key]?'Breached':'Inside'}</td></tr>`;
+  const n=a.n,order=[...a.H].sort((x,y)=>x.sector.localeCompare(y.sector)||y.w-x.w);
+  let heat=`<div class="heat" style="grid-template-columns:52px repeat(${n},1fr)"><div class="h"></div>`+order.map(h=>`<div class="h">${h.sym}</div>`).join('');
+  order.forEach(r=>{heat+=`<div class="h" style="justify-content:start">${r.sym}</div>`;order.forEach(c=>{const p=rho(r,c);heat+=`<div style="background:color-mix(in srgb,var(--steel) ${Math.round(p*90)}%,transparent);color:${p>.6?'#fff':'var(--ink)'}">${n>12?'':p.toFixed(2)}</div>`})});
+  heat+='</div>';
+  return `
+  <div class="cols wide">
+   <div><h2>Risk measures</h2><p class="lede">Model estimates from the assumptions on the Method tab.</p>
+    <table class="kv"><tbody>
+     <tr><td>One-day loss, 95% confidence</td><td>${nprF(a.var95)} (${pc(v95,2)})</td></tr>
+     <tr><td>One-day loss, 99% confidence</td><td>${nprF(a.var99)} (${pc(a.var99/a.V,2)})</td></tr>
+     <tr><td>Ten-day loss, 95% confidence</td><td>${nprF(a.var95*Math.sqrt(10))}</td></tr>
+     <tr><td>One-month 5% worst case (simulated)</td><td>${nprF(-mc.q05)}</td></tr>
+     <tr><td>One-month 1% worst case (simulated)</td><td>${nprF(-mc.q01)}</td></tr>
+     <tr><td>Annual volatility</td><td>${pc(a.volA)}</td></tr>
+     <tr><td>Beta to NEPSE</td><td>${a.beta.toFixed(2)}</td></tr>
+     <tr><td>Concentration (HHI)</td><td>${a.hhi.toFixed(3)}, equal to ${a.effN.toFixed(1)} equal-sized holdings</td></tr>
+    </tbody></table></div>
+   <div><h2>Your limits</h2><p class="lede">Set the limits ARTHAVEST works to. Breaches lower the Kawach score.</p>
+    <table><thead><tr><th class="l">Limit</th><th>Maximum</th><th>Now</th><th>Status</th></tr></thead><tbody>
+     ${lim('Single stock','stock',a.H.reduce((m,h)=>Math.max(m,h.w),0),pc(a.H.reduce((m,h)=>Math.max(m,h.w),0)))}
+     ${lim('Single sector','sector',a.secList[0].w,pc(a.secList[0].w))}
+     ${lim('Top three holdings','top3',a.top3,pc(a.top3))}
+     ${lim('One-day 95% VaR','var',v95,pc(v95,2))}
+    </tbody></table></div>
+  </div>
+  <section class="blk"><h2>Correlation between holdings</h2><p class="lede">Nepali stocks tend to move together, so the model assumes 0.75 within a sector, 0.55 across financial sectors or across non-financial sectors, and 0.45 between the two groups.</p><div class="tw">${heat}</div></section>
+  <section class="blk"><h2>Trim plan</h2><p class="lede">Suggested sales to get every holding back under the single-stock limit, with the capital gains tax you would owe at ${pc(st.tax,1)}.</p>${trimTable(a)}</section>`;
+}
+function trimTable(a){
+  const L=st.limits,rows=a.H.filter(h=>h.w>L.stock).map(h=>{const sh=Math.ceil((h.value-L.stock*a.V)/h.ltp),g=Math.max(0,h.ltp-h.cost)*sh*st.tax;
+    return `<tr><td>${h.sym}</td><td>${pc(h.w)}</td><td>${fIN.format(sh)}</td><td>${nprF(sh*h.ltp)}</td><td>${nprF(g)}</td></tr>`}).join('');
+  if(!rows)return `<div class="alert ok"><div><b>No single stock is above its limit</b><span>Nothing to trim at the current ${pc(L.stock,0)} limit.</span></div></div>`;
+  return `<div class="tw"><table><thead><tr><th>Symbol</th><th>Weight now</th><th>Shares to sell</th><th>Sale value</th><th>Estimated tax</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+}
+
+function vStress(a){
+  if(a.empty)return emptyView();
+  const btns=Object.entries(SCEN).map(([k,s])=>`<button data-sc="${k}" aria-pressed="${st.scen===k}"><b>${s.name}</b><span>${s.d}</span></button>`).join('');
+  const present=[...new Set(a.H.map(h=>h.sector))];
+  const sliders=st.scen==='custom'?`<div style="margin-top:20px"><h3>Sector moves</h3>`+present.map(s=>`<div class="sl"><span>${s}</span><input type="range" min="-40" max="20" step="1" value="${st.custom[s]||0}" data-cs="${esc(s)}" aria-label="${s} move"><small id="cs-${present.indexOf(s)}">${(st.custom[s]||0)>0?'+':''}${st.custom[s]||0}%</small></div>`).join('')+`</div>`:'';
+  return `<div class="stress"><div><div class="scen" id="scen">${btns}</div>${sliders}</div><div id="sres"></div></div>`;
+}
+function stressResult(a){
+  const rows=a.H.map(h=>{const p=shockFor(st.scen,h);return {h,p,amt:h.value*p}}).sort((x,y)=>x.amt-y.amt);
+  const tot=rows.reduce((s,r)=>s+r.amt,0),pct=tot/a.V;
+  const mx=Math.max(...rows.map(r=>Math.abs(r.amt)),1);
+  const list=rows.map(r=>`<div class="dv"><span><b>${r.h.sym}</b></span><div class="ax"><i style="${r.amt>=0?'left:50%':'right:50%'};width:${Math.abs(r.amt)/mx*50}%;background:var(--${r.amt>=0?'pine':'crimson'})"></i></div><small class="${cls(r.amt)}">${nprF(r.amt).replace(/^Rs /,'').replace('\u2212Rs ','\u2212')}</small></div>`).join('');
+  const worst=rows[0];
+  document.getElementById('sres').innerHTML=`<div class="lab" style="color:var(--muted)">${SCEN[st.scen].name}</div>
+   <div class="big ${cls(tot)}">${nprF(tot)}</div>
+   <div class="${cls(tot)}" style="margin-bottom:4px">${sg(pct,1)} of portfolio value, leaving ${nprF(a.V+tot)}</div>
+   <p class="lede">${tot<0&&worst.amt<0?`${worst.h.sym} is hit hardest at ${nprF(worst.amt)}.`:'No holding loses money in this scenario.'} Figures are in rupees.</p>
+   <h3 style="margin-top:20px">By holding (Rs)</h3>${list}`;
+}
+
+let LIVE=null;
+function vMarket(a){
+  const sectorRows=Object.entries(SECT_DAY).sort((x,y)=>y[1]-x[1]).map(([l,v])=>({l,v}));
+  let implied='';
+  if(!a.empty){const r=a.H.reduce((s,h)=>s+h.w*(SECT_DAY[h.sector]||0)/100,0);
+    implied=`<p class="lede">If each of your holdings had moved with its NEPSE sector on ${MKT.date}, the portfolio would have changed by <b class="${cls(r)}">${sg(r,2)}</b>, about ${nprF(r*a.V)}.</p>`}
+  const macro=[
+   ['NRB policy rate','4.25%','Monetary policy 2026/27, 7 Jul 2026'],
+   ['Inflation (CPI, year on year)','5.04%','Mid-May 2026. NRB aims to keep it under 5.5%'],
+   ['Foreign exchange reserves','Rs 3,704.55 Arba','About US$24.19 billion, 19.2 months of imports, mid-May 2026'],
+   ['Remittance inflows','+41.2%','Growth over the first ten months of FY 2025/26'],
+   ['Rupee peg','INR 1 = NPR 1.60','Fixed rate against the Indian rupee']];
+  const rules=[
+   ['Exchange and regulator','Nepal Stock Exchange (NEPSE); regulated by SEBON'],
+   ['Depository','CDS and Clearing Ltd (CDSC), with holdings in demat accounts'],
+   ['Trading days and hours','Sunday to Thursday, 11:00 to 15:00 Nepal time'],
+   ['Settlement','T+2 through your broker (TMS)'],
+   ['Daily price band','Plus or minus 10% from the previous close'],
+   ['Capital gains tax','Individuals 7.5% under one year, 5% over one year; institutions 10%. Confirm against the latest Finance Act'],
+   ['Listed companies','About 263 (March 2026)']];
+  return `<div class="cols wide">
+   <div>${LIVE?`<h2>NEPSE live</h2><p class="lede">The index is at <b>${f2.format(LIVE.index)}</b>, ${LIVE.chg>=0?'up':'down'} ${f2.format(Math.abs(LIVE.chg))} points (${sg(LIVE.pct)}) on the previous close${LIVE.time?', as of '+esc(LIVE.time):''}. This refreshes about every 30 seconds from an unofficial third-party data service, not from NEPSE, so treat it as indicative. Turnover on the ${MKT.date} close was ${MKT.turnover} on ${MKT.volume}.</p>`:`<h2>NEPSE on ${MKT.date}</h2><p class="lede">The index closed at <b>${f2.format(MKT.index)}</b>, ${MKT.chg>=0?'up':'down'} ${Math.abs(MKT.chg)} points (${sg(MKT.pct)}). Turnover was ${MKT.turnover} on ${MKT.volume}.</p>`}
+    ${implied}<h3 style="margin-top:18px">Sector moves, last full breakdown (${SECT_DATE})</h3>${divBars(sectorRows,v=>(v>=0?'+':'\u2212')+Math.abs(v).toFixed(2)+'%')}</div>
+   <div><h2>Biggest gainers, ${SECT_DATE}</h2><p class="lede">Symbols only, as listed on that day. Some are debentures or small-cap stocks with thin volume.</p>
+    ${divBars(GAINERS.map(([l,v])=>({l,v})),v=>'+'+v.toFixed(2)+'%')}</div>
+  </div>
+  <section class="blk"><h2>Macro backdrop</h2><p class="lede">Latest figures published by Nepal Rastra Bank, as reported in June and July 2026.</p>
+   <table class="kv"><tbody>${macro.map(m=>`<tr><td class="l">${m[0]}</td><td style="font-family:var(--serif);font-size:19px;text-align:left">${m[1]}</td><td class="l" style="color:var(--muted);white-space:normal">${m[2]}</td></tr>`).join('')}</tbody></table></section>
+  <section class="blk"><h2>How the market works</h2><table class="kv"><tbody>${rules.map(r=>`<tr><td class="l" style="white-space:normal;width:34%">${r[0]}</td><td class="l" style="white-space:normal">${r[1]}</td></tr>`).join('')}</tbody></table></section>
+  <p class="lede" style="margin-top:22px">Sources: OnlineKhabar and Chukul (NEPSE close and sector changes), Nepal Rastra Bank monetary policy and macroeconomic reports, Nepal Stock Exchange. ${LIVE?'The index level is pulled live from an unofficial third-party service that is not affiliated with NEPSE or ARTHAVEST; every other figure on this page is a dated snapshot and will not move on its own.':'KAWACH is not connected to a live NEPSE feed right now, so the figures above are a dated snapshot and will not move on their own; only the session clock at the top of the page updates in real time.'}</p>`;
+}
+
+function vMethod(){
+  return `<div class="method"><h2>What the model does</h2>
+  <p>KAWACH treats each holding as a stock with a volatility and beta taken from its NEPSE sector, then combines them with a simple correlation structure. It is a transparent starting model, not a full factor model.</p>
+  <ul>
+   <li><b>Volatility and beta.</b> Each sector has an assumed annual volatility (25% to 38%) and beta to NEPSE (0.70 to 1.15). Replace these with figures from your own price history when you have it.</li>
+   <li><b>Correlation.</b> 0.75 inside a sector, 0.55 between financial sectors (banks, finance, microfinance, insurance, investment) or between non-financial sectors, 0.45 between the two groups.</li>
+   <li><b>Value at risk.</b> Portfolio volatility comes from the covariance matrix. One-day VaR is 1.645 (95%) or 2.326 (99%) times daily volatility times portfolio value, using 240 trading days a year.</li>
+   <li><b>One-month outlook.</b> 4,000 correlated simulations over 21 trading days, assuming normally distributed returns and no drift.</li>
+   <li><b>Risk contribution.</b> Each holding's share of portfolio variance. It differs from its weight when the holding is highly correlated with the rest.</li>
+   <li><b>Kawach score.</b> Diversification (30%), volatility (25%), sector balance (25%) and market sensitivity (20%), each scored 0 to 100, minus 3 points per limit breach up to 15.</li>
+   <li><b>Stress tests.</b> Each scenario applies a fixed percentage move to every holding in the affected sectors. Scenario sizes are judgement calls, so treat them as prompts for discussion, not predictions.</li>
+   <li><b>Technical screener.</b> Each covered stock gets a 260-session price path simulated from its sector's daily volatility, anchored so the final value matches its last known price. The 200-day EMA (smoothing factor 2/201) is computed on that path, and a signal fires the session price crosses it. Until real daily closes are wired in, treat every signal here as an illustration of the rule, not a live call.</li>
+   <li><b>High-confluence BUY checker.</b> A manual, single-stock calculator, not a data feed: you enter CMP, EMAs, RSI, MACD, volume, broker activity, support and resistance yourself. It gates on daily uptrend and price above the 20/50 EMA, then scores five factors out of 2 each (index alignment, support zone, volume plus broker accumulation, RSI/MACD momentum, a clean 1:3 path) for a total out of 10. A resistance level short of the 1:3 target overrides everything to NO SIGNAL. 8 or above is BUY, 5 to 7 is HOLD, below 5 is NO SIGNAL.</li>
+   <li><b>Reference sector weights.</b> Rough approximations of NEPSE sector weights, normalised to 100%. Swap in your benchmark.</li>
+  </ul>
+  <h2 style="margin-top:28px">What it does not capture</h2>
+  <ul>
+   <li>Live prices. Enter last traded prices yourself.</li>
+   <li>Liquidity. Many Nepali stocks trade thin, and the 10% daily band can stop you selling on a bad day, so real losses can exceed the figures here.</li>
+   <li>Fat tails. Normal returns understate extreme days.</li>
+   <li>Fees and settlement timing. Broker commission and DP charges are not deducted.</li>
+  </ul>
+  <p>Your holdings and limits are saved in this browser only. They are not sent anywhere.</p></div>`;
+}
+
+function vScreener(){
+  const {signals,watch}=screenerData(),top=signals[0];
+  const sigRows=signals.slice(0,20).map(r=>`<tr><td><b>${r.sym}</b><span class="nm">${esc(r.name)}</span></td><td class="l">${r.sector}</td>
+   <td class="${r.cross.type==='buy'?'up':'down'}"><b>${r.cross.type==='buy'?'BUY':'SELL'}</b></td>
+   <td>${f2.format(r.last)}</td><td>${f2.format(r.lastEma)}</td>
+   <td>${r.cross.ago===0?'This session':r.cross.ago+' session'+(r.cross.ago>1?'s':'')+' ago'}</td></tr>`).join('');
+  const watchRows=watch.slice(0,10).map(r=>`<tr><td><b>${r.sym}</b></td><td class="l">${r.sector}</td><td>${f2.format(r.last)}</td><td>${f2.format(r.lastEma)}</td><td class="${cls(r.distPct)}">${sg(r.distPct,2)}</td></tr>`).join('');
+  return `
+  <div class="banner">This screener runs on modeled price paths anchored to each stock's last known price, not a live NEPSE feed — see how below. Wire in real daily closes (same EMA formula, on the Method tab) and the identical logic flags real signals.</div>
+  <section class="blk"><h2>How the system decides</h2><p class="lede" style="max-width:70ch">Every covered stock's price is plotted against its 200-day exponential moving average (EMA). A <b class="up">BUY</b> signal fires the session a stock closes <i>above</i> its 200 EMA after being below it. A <b class="down">SELL</b> signal fires the session it closes back <i>below</i> the 200 EMA after being above it. Only crossings from the last 10 sessions are shown, so the list stays current and a stock drops off once the signal goes stale.</p></section>
+  ${top?`<section class="blk"><h2>Most recent signal: ${top.sym}, <span class="${top.cross.type==='buy'?'up':'down'}">${top.cross.type==='buy'?'BUY':'SELL'}</span></h2>
+   <p class="lede">${esc(top.name)} (${top.sector}) closed ${top.cross.type==='buy'?'above':'below'} its 200 EMA ${top.cross.ago===0?'this session':top.cross.ago+' session'+(top.cross.ago>1?'s':'')+' ago'}, at ${f2.format(top.last)} against an EMA of ${f2.format(top.lastEma)}.</p>
+   <div class="hist">${sparkSVG(top.series,top.ema,top.cross.ago)}</div></section>`:''}
+  <section class="blk"><h2>Fresh crossovers, last 10 sessions</h2><p class="lede">${signals.length?`${signals.length} of ${UNI_LIST.length} covered stocks crossed their 200 EMA recently, most recent first.`:`No covered stock crossed its 200 EMA in the last 10 modeled sessions.`}</p>
+   ${sigRows?`<div class="tw"><table><thead><tr><th class="l">Stock</th><th class="l">Sector</th><th>Signal</th><th>Price</th><th>200 EMA</th><th>Crossed</th></tr></thead><tbody>${sigRows}</tbody></table></div>`:''}</section>
+  <section class="blk"><h2>Approaching the line</h2><p class="lede">Within 1.5% of the 200 EMA but not yet crossed — worth watching for the next session.</p>
+   ${watchRows?`<div class="tw"><table><thead><tr><th class="l">Stock</th><th class="l">Sector</th><th>Price</th><th>200 EMA</th><th>Distance</th></tr></thead><tbody>${watchRows}</tbody></table></div>`:'<div class="alert ok"><div><b>Nothing sitting close to the line right now</b></div></div>'}</section>
+  <p class="lede" style="margin-top:22px">This is a rule-based system, not a guarantee: a 200 EMA crossover is a lagging signal, and thinly traded Nepali counters can whipsaw across it inside the 10% daily band. Treat a signal as a prompt to look closer, not an instruction to trade.</p>
+  <section class="blk"><h2>High-confluence BUY checker</h2>
+   <p class="lede" style="max-width:72ch">A long-only, mechanical checklist for one stock at a time: trend and index alignment, a support/demand zone, volume plus broker accumulation, RSI/MACD momentum, and a clean 1:3 risk-to-reward path. Enter what you see on the chart and floorsheet — Kawach does not have a live NEPSE feed, so nothing here is pre-filled or fetched for you.</p>
+   <div class="form" style="align-items:start;gap:14px 18px">
+    <label>Symbol<input id="cfSymbol" class="sym" placeholder="SHIVM"></label>
+    <label>Sector<input id="cfSectorName" placeholder="Manufacturing"></label>
+    <label>CMP (Rs)<input id="cfCmp" type="number" step="0.01" min="0"></label>
+    <label>20 EMA (Rs)<input id="cfEma20" type="number" step="0.01" min="0"></label>
+    <label>50 EMA (Rs)<input id="cfEma50" type="number" step="0.01" min="0"></label>
+    <label>Daily structure<select id="cfStructure"><option value="up">Uptrend (HH/HL)</option><option value="side">Sideways</option><option value="down">Downtrend</option></select></label>
+    <label>NEPSE index trend<select id="cfNepse"><option>Bullish</option><option>Sideways</option><option>Bearish</option></select></label>
+    <label>Sector index trend<select id="cfSector"><option>Bullish</option><option>Sideways</option><option>Bearish</option></select></label>
+    <label>RSI (14)<input id="cfRsi" type="number" step="0.1" min="0" max="100"></label>
+    <label>MACD<select id="cfMacd"><option value="bull">Bullish crossover</option><option value="none">No crossover</option><option value="bear">Bearish crossover</option></select></label>
+    <label>Today's volume<input id="cfVol" type="number" min="0" step="1"></label>
+    <label>20-day avg volume<input id="cfAvgVol" type="number" min="0" step="1"></label>
+    <label>Nearest support (Rs)<input id="cfSupport" type="number" step="0.01" min="0"></label>
+    <label>Resistance before target (Rs)<input id="cfResistance" type="number" step="0.01" min="0" placeholder="blank = none known"></label>
+    <label>20-day avg turnover (Rs)<input id="cfTurnover" type="number" min="0" step="1" placeholder="for liquidity flag"></label>
+   </div>
+   <div style="display:flex;gap:22px;flex-wrap:wrap;margin-top:8px">
+    <span class="field"><input id="cfRsiSignal" type="checkbox"> <label for="cfRsiSignal">RSI rebounding from 40-50, or bullish divergence</label></span>
+    <span class="field"><input id="cfBroker" type="checkbox"> <label for="cfBroker">Net broker accumulation detected</label></span>
+    <span class="field"><input id="cfSupportOk" type="checkbox"> <label for="cfSupportOk">Support is a confirmed demand zone, not a guess</label></span>
+   </div>
+   <div style="margin-top:16px"><button class="btn" id="cfEval" type="button">Evaluate signal</button></div>
+   <div id="cfResult" style="margin-top:20px"></div>
+  </section>`;
+}
+
+function vProject(){
+  return `
+  <section class="blk" style="margin-top:0"><p class="lede" style="max-width:70ch">A look at what ARTHAVEST is building next. These are previews, not live subscriptions — each form below saves to your own browser for now, ahead of being wired to our real signup lists.</p></section>
+  <section class="etf-banner">
+   <div class="etf-inner">
+    <div class="etf-content">
+     <span class="etf-badge"><i class="etf-dot" aria-hidden="true"></i>Launching soon</span>
+     <h2 class="etf-title">Nepal Top-50 ETF</h2>
+     <p class="etf-msg">Invest across NEPSE's top 50 listed companies through a single fund — one trade for the diversification that used to take fifty.</p>
+     <div class="etf-highlights">
+      <div class="etf-hl emerald">
+       <span class="ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" rx="2" stroke="#22AC7D" stroke-width="1.8"/><rect x="13" y="3" width="8" height="8" rx="2" stroke="#22AC7D" stroke-width="1.8" opacity=".55"/><rect x="3" y="13" width="8" height="8" rx="2" stroke="#22AC7D" stroke-width="1.8" opacity=".55"/><rect x="13" y="13" width="8" height="8" rx="2" stroke="#22AC7D" stroke-width="1.8" opacity=".3"/></svg></span>
+       <div><b>Instant diversification</b><span>Spread across 50 top-performing NEPSE companies in one purchase, instead of picking stocks one at a time.</span></div>
+      </div>
+      <div class="etf-hl gold">
+       <span class="ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#D2AA5C" stroke-width="1.8"/><path d="M12 7v10M9 9.5c0-1.4 1.3-2.5 3-2.5s3 1 3 2.2c0 2.8-6 1.3-6 4.1 0 1.2 1.3 2.2 3 2.2s3-1.1 3-2.5" stroke="#D2AA5C" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+       <div><b>Low cost, full transparency</b><span>A minimal management fee, with every holding in the fund published in the open.</span></div>
+      </div>
+     </div>
+     <div class="etf-cta">
+      <button type="button" class="etf-btn" id="etfNotifyBtn">Notify me at launch</button>
+      <div class="etf-inline" id="etfInline" hidden>
+       <input type="email" id="etfEmail" placeholder="you@email.com" autocomplete="email" aria-label="Email address">
+       <button type="button" class="etf-btn etf-btn-solid" id="etfSubmitBtn">Submit</button>
+      </div>
+      <p class="etf-note" id="etfNote" role="status" aria-live="polite"></p>
+     </div>
+    </div>
+    <div class="etf-mark" aria-hidden="true">
+     <svg viewBox="0 0 220 220">
+      <defs>
+       <linearGradient id="etfNumGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EFCF8E"/><stop offset="1" stop-color="#B5893F"/></linearGradient>
+       <radialGradient id="etfGlow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#D2AA5C" stop-opacity=".32"/><stop offset="100%" stop-color="#D2AA5C" stop-opacity="0"/></radialGradient>
+       <linearGradient id="etfSweep" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#22AC7D" stop-opacity=".55"/><stop offset="1" stop-color="#22AC7D" stop-opacity="0"/></linearGradient>
+      </defs>
+      <circle cx="110" cy="104" r="66" fill="url(#etfGlow)"/>
+      <circle class="ring" cx="110" cy="104" r="96"/><circle class="ring-acc" cx="110" cy="104" r="80"/>
+      <g class="etf-sweep"><path d="M110 104 L110 8 A96 96 0 0 1 166 32 Z" fill="url(#etfSweep)"/></g>
+      <g class="etf-dots">
+       <circle cx="110.0" cy="21.0" r="3.3" fill="#D2AA5C" style="animation-delay:0s"/>
+       <circle cx="141.8" cy="27.3" r="2.6" fill="#22AC7D" style="animation-delay:.16s"/>
+       <circle cx="168.7" cy="45.3" r="2.6" fill="#D2AA5C" style="animation-delay:.32s"/>
+       <circle cx="186.7" cy="72.2" r="3.3" fill="#22AC7D" style="animation-delay:.48s"/>
+       <circle cx="193.0" cy="104.0" r="2.6" fill="#D2AA5C" style="animation-delay:.64s"/>
+       <circle cx="186.7" cy="135.8" r="2.6" fill="#22AC7D" style="animation-delay:.8s"/>
+       <circle cx="168.7" cy="162.7" r="3.3" fill="#D2AA5C" style="animation-delay:.96s"/>
+       <circle cx="141.8" cy="180.7" r="2.6" fill="#22AC7D" style="animation-delay:1.12s"/>
+       <circle cx="110.0" cy="187.0" r="2.6" fill="#D2AA5C" style="animation-delay:1.28s"/>
+       <circle cx="78.2" cy="180.7" r="3.3" fill="#22AC7D" style="animation-delay:1.44s"/>
+       <circle cx="51.3" cy="162.7" r="2.6" fill="#D2AA5C" style="animation-delay:1.6s"/>
+       <circle cx="33.3" cy="135.8" r="2.6" fill="#22AC7D" style="animation-delay:1.76s"/>
+       <circle cx="27.0" cy="104.0" r="3.3" fill="#D2AA5C" style="animation-delay:1.92s"/>
+       <circle cx="33.3" cy="72.2" r="2.6" fill="#22AC7D" style="animation-delay:2.08s"/>
+       <circle cx="51.3" cy="45.3" r="2.6" fill="#D2AA5C" style="animation-delay:2.24s"/>
+       <circle cx="78.2" cy="27.3" r="3.3" fill="#22AC7D" style="animation-delay:2.4s"/>
+      </g>
+      <text x="110" y="126" text-anchor="middle" class="num etf-pulse">50</text>
+      <text x="110" y="196" text-anchor="middle" class="cap">TOP NEPSE HOLDINGS</text>
+     </svg>
+    </div>
+   </div>
+  </section>
+  <section class="etf-banner" style="margin-top:26px">
+   <div class="etf-inner">
+    <div class="etf-content">
+     <span class="etf-badge"><i class="etf-dot" aria-hidden="true"></i>Launching soon</span>
+     <h2 class="etf-title">Real Estate ETF</h2>
+     <p class="etf-msg" style="margin-top:2px;opacity:.75;font-size:13px">Fractional Property Fund</p>
+     <p class="etf-msg">Own a fraction of high-value commercial and residential real estate — earn rental income and long-term growth, without the hassle of full property management.</p>
+     <div class="etf-highlights">
+      <div class="etf-hl gold">
+       <span class="ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#D2AA5C" stroke-width="1.8"/><path d="M8 12h8M12 8v8" stroke="#D2AA5C" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+       <div><b>Micro investment</b><span>Start with a small amount instead of buying a full physical property outright.</span></div>
+      </div>
+      <div class="etf-hl emerald">
+       <span class="ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 16l5-6 4 4 6-8" stroke="#22AC7D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 6h4v4" stroke="#22AC7D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+       <div><b>Rental income and growth</b><span>Passive rental yield alongside long-term capital appreciation on the underlying property.</span></div>
+      </div>
+      <div class="etf-hl gold">
+       <span class="ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M7 8l-3 3 3 3M17 8l3 3-3 3M4 11h16" stroke="#D2AA5C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+       <div><b>High liquidity</b><span>Buy and sell fund units on the market, unlike traditional, hard-to-exit real estate.</span></div>
+      </div>
+     </div>
+     <div class="etf-cta">
+      <button type="button" class="etf-btn" id="reNotifyBtn">Get early access</button>
+      <div class="etf-inline" id="reInline" hidden>
+       <input type="email" id="reEmail" placeholder="you@email.com" autocomplete="email" aria-label="Email address">
+       <button type="button" class="etf-btn etf-btn-solid" id="reSubmitBtn">Submit</button>
+      </div>
+      <p class="etf-note" id="reNote" role="status" aria-live="polite"></p>
+     </div>
+    </div>
+    <div class="etf-mark" aria-hidden="true">
+     <svg viewBox="0 0 220 220">
+      <defs>
+       <linearGradient id="reArcGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EFCF8E"/><stop offset="1" stop-color="#B5893F"/></linearGradient>
+       <radialGradient id="reGlow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#22AC7D" stop-opacity=".28"/><stop offset="100%" stop-color="#22AC7D" stop-opacity="0"/></radialGradient>
+      </defs>
+      <circle cx="110" cy="104" r="66" fill="url(#reGlow)"/>
+      <circle class="ring" cx="110" cy="104" r="96"/>
+      <circle cx="110" cy="104" r="80" fill="none" stroke="url(#reArcGrad)" stroke-width="5" stroke-linecap="round" stroke-dasharray="150 503" transform="rotate(-90 110 104)"/>
+      <circle class="re-shimmer" cx="110" cy="104" r="80" fill="none" stroke="#FBE7B8" stroke-width="5" stroke-linecap="round" stroke-dasharray="12 491"/>
+      <g transform="translate(110,104)" fill="none" stroke="#22AC7D" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round">
+       <rect x="-28" y="10" width="16" height="28"/>
+       <rect x="-8" y="-22" width="18" height="60"/>
+       <rect x="14" y="0" width="14" height="38"/>
+       <g class="re-windows" stroke="none" fill="#BFE7D8">
+        <rect x="-24" y="16" width="3" height="4"/><rect x="-17" y="16" width="3" height="4" style="animation-delay:.6s"/>
+        <rect x="-24" y="26" width="3" height="4" style="animation-delay:.4s"/><rect x="-17" y="26" width="3" height="4" style="animation-delay:.9s"/>
+        <rect x="-4" y="-16" width="3" height="4" style="animation-delay:.2s"/><rect x="3" y="-16" width="3" height="4" style="animation-delay:.7s"/>
+        <rect x="-4" y="-4" width="3" height="4" style="animation-delay:1.1s"/><rect x="3" y="-4" width="3" height="4" style="animation-delay:.5s"/>
+        <rect x="-4" y="8" width="3" height="4" style="animation-delay:1.4s"/><rect x="3" y="8" width="3" height="4" style="animation-delay:.3s"/>
+        <rect x="18" y="6" width="3" height="4" style="animation-delay:.8s"/><rect x="18" y="16" width="3" height="4" style="animation-delay:1.2s"/>
+       </g>
+      </g>
+      <g class="re-particles" transform="translate(110,104)">
+       <circle cx="-20" cy="34" r="2.4" fill="#D2AA5C" style="animation-delay:0s"/>
+       <circle cx="-8" cy="34" r="2.2" fill="#22AC7D" style="animation-delay:.9s"/>
+       <circle cx="4" cy="34" r="2.6" fill="#D2AA5C" style="animation-delay:1.8s"/>
+       <circle cx="16" cy="34" r="2.2" fill="#22AC7D" style="animation-delay:2.7s"/>
+       <circle cx="24" cy="34" r="2.4" fill="#D2AA5C" style="animation-delay:3.4s"/>
+      </g>
+      <text x="110" y="196" text-anchor="middle" class="cap">FRACTIONAL PROPERTY OWNERSHIP</text>
+     </svg>
+    </div>
+   </div>
+  </section>
+  <section class="etf-banner" style="margin-top:26px">
+   <div class="etf-inner">
+    <div class="etf-content">
+     <span class="etf-badge"><i class="etf-dot" aria-hidden="true"></i>Launching soon</span>
+     <h2 class="etf-title">Nepal Gold ETF</h2>
+     <p class="etf-msg" style="margin-top:2px;opacity:.75;font-size:13px">Digital Gold Fund</p>
+     <p class="etf-msg">Direct exposure to physical gold purity with zero storage hassles — high liquidity and fractional ownership starting at micro-investment levels.</p>
+     <div class="etf-highlights">
+      <div class="etf-hl gold">
+       <span class="ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v5c0 5-3 8-7 9-4-1-7-4-7-9V6l7-3z" stroke="#D2AA5C" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="#D2AA5C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+       <div><b>99.9% purity, secure vaulting</b><span>Backed 1:1 by physical, audited bullion stored in high-security bank vaults.</span></div>
+      </div>
+      <div class="etf-hl emerald">
+       <span class="ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12a8 8 0 0 1 13.9-5.5M20 4v4h-4" stroke="#22AC7D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 12a8 8 0 0 1-13.9 5.5M4 20v-4h4" stroke="#22AC7D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+       <div><b>Systematic investment (Gold SIP)</b><span>Accumulate digital gold in small daily or monthly fractions, no large lump-sum payments.</span></div>
+      </div>
+      <div class="etf-hl gold">
+       <span class="ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="15" r="5" stroke="#D2AA5C" stroke-width="1.8"/><path d="M9 13v4M7 14.5h4" stroke="#D2AA5C" stroke-width="1.5" stroke-linecap="round"/><path d="M14 9l4-4m0 0h-4m4 0v4" stroke="#D2AA5C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+       <div><b>High liquidity, instant cash-out</b><span>Buy or sell units on NEPSE, or redeem for physical gold bars once you reach the threshold.</span></div>
+      </div>
+     </div>
+     <div class="etf-cta">
+      <button type="button" class="etf-btn" id="goldNotifyBtn">Reserve early units</button>
+      <div class="etf-inline" id="goldInline" hidden>
+       <input type="email" id="goldEmail" placeholder="you@email.com" autocomplete="email" aria-label="Email address">
+       <button type="button" class="etf-btn etf-btn-solid" id="goldSubmitBtn">Submit</button>
+      </div>
+      <p class="etf-note" id="goldNote" role="status" aria-live="polite"></p>
+     </div>
+    </div>
+    <div class="etf-mark" aria-hidden="true">
+     <svg viewBox="0 0 220 220">
+      <defs>
+       <linearGradient id="glBarGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFD700"/><stop offset=".5" stop-color="#D2AA5C"/><stop offset="1" stop-color="#8A6423"/></linearGradient>
+       <linearGradient id="glBadgeGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFE9A8"/><stop offset="1" stop-color="#B5893F"/></linearGradient>
+       <radialGradient id="glGlow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#FFD700" stop-opacity=".30"/><stop offset="100%" stop-color="#FFD700" stop-opacity="0"/></radialGradient>
+       <linearGradient id="glSweep" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#FFD700" stop-opacity=".5"/><stop offset="1" stop-color="#FFD700" stop-opacity="0"/></linearGradient>
+      </defs>
+      <circle cx="110" cy="104" r="66" fill="url(#glGlow)"/>
+      <circle class="ring" cx="110" cy="104" r="96"/>
+      <g class="etf-sweep"><path d="M110 104 L110 8 A96 96 0 0 1 166 32 Z" fill="url(#glSweep)"/></g>
+      <g transform="translate(110,120)">
+       <path d="M-34 10 L-20 2 L20 2 L34 10 L20 18 L-20 18 Z" fill="url(#glBarGrad)" stroke="#8A6423" stroke-width="1"/>
+       <path d="M-28 -4 L-16 -11 L16 -11 L28 -4 L16 3 L-16 3 Z" fill="url(#glBarGrad)" stroke="#8A6423" stroke-width="1" opacity=".95"/>
+       <path d="M-20 -17 L-10 -23 L10 -23 L20 -17 L10 -11 L-10 -11 Z" fill="url(#glBarGrad)" stroke="#8A6423" stroke-width="1" opacity=".9"/>
+       <g stroke="#FFEFC2" stroke-width=".5" opacity=".5"><line x1="-10" y1="-23" x2="-10" y2="-11"/><line x1="0" y1="-23" x2="0" y2="-11"/><line x1="10" y1="-23" x2="10" y2="-11"/></g>
+      </g>
+      <g transform="translate(160,54)">
+       <circle r="22" fill="#0A0F1B" stroke="url(#glBadgeGrad)" stroke-width="2"/>
+       <text x="0" y="-2" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-weight="700" font-size="11" fill="url(#glBadgeGrad)">999.9</text>
+       <text x="0" y="9" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="6" letter-spacing=".04em" fill="#D9BE86">PURE GOLD</text>
+      </g>
+      <g class="gl-badge" transform="translate(52,154)">
+       <rect x="-34" y="-11" width="68" height="22" rx="11" fill="rgba(210,170,92,.12)" stroke="rgba(210,170,92,.4)"/>
+       <circle cx="-22" cy="0" r="3" fill="#FFD700"/>
+       <text x="-14" y="3" font-family="IBM Plex Sans,sans-serif" font-size="8" fill="#F0DDAF">LIVE XAU/NPR</text>
+      </g>
+      <polyline class="gl-spark" points="26,170 34,164 42,167 50,158 58,161 66,150" fill="none" stroke="#FFD700" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="110" y="196" text-anchor="middle" class="cap">999.9 PURE, FULLY VAULTED</text>
+     </svg>
+    </div>
+   </div>
+  </section>`;
+}
+
+function vAbout(){
+  const stats=[['2026','Founded'],['NEPSE','Primary market covered'],['SEBON','Regulatory framework we build against'],['\u0915\u0935\u091A','Sanskrit for "armour" or "shield"']];
+  const principles=[
+   ['Built for one market','Kawach is not a global platform trimmed down for Nepal. Sector volatilities, correlations, tax bands and settlement rules are drawn from NEPSE, SEBON and Nepal Rastra Bank from the outset.'],
+   ['Transparent, not a black box','Every figure on these screens traces back to a stated assumption on the Method tab. Where we do not know something about your holdings, we ask, rather than guess.'],
+   ['Risk before return','A portfolio management system should tell a manager what could go wrong before it tells them what could go right. Kawach opens on limits, concentration and downside, not on performance.'],
+   ['Your data stays yours','Holdings and limits are stored on your own device. Nothing is sent to a server, and nothing is shared with a counterparty or a data vendor.']];
+  return `
+  <section class="hero" style="grid-template-columns:1fr">
+   <div class="info" style="text-align:left">
+    <div class="lab">ARTHAVEST INVESTMENT PRIVATE LIMITED</div>
+    <div class="nav-val" style="font-size:clamp(26px,3.4vw,34px)">A risk and portfolio system built for the Nepali market</div>
+    <p class="pl" style="max-width:62ch;color:var(--hero-muted)">Kawach, meaning armour, is ARTHAVEST's in-house console for seeing what a portfolio actually holds: where its risk sits, where it breaches its own limits, and how it would hold up under a shock to Nepal's banks, hydropower producers or remittance flows.</p>
+   </div>
+  </section>
+  <div class="kpis">${stats.map(s=>`<div class="kpi"><div class="v" style="font-size:22px">${s[0]}</div><div class="l">${s[1]}</div></div>`).join('')}</div>
+  <section class="blk"><h2>Message from the director</h2>
+   <div class="director">
+    <img src="${DIRECTOR_PHOTO}" alt="Mahendra Dahal, Director, ARTHAVEST INVESTMENT PRIVATE LIMITED">
+    <div>
+     <div class="nm">Mahendra Dahal</div>
+     <div class="role">Director, ARTHAVEST INVESTMENT PRIVATE LIMITED</div>
+     <blockquote>"Nepali investors have never lacked opportunity in this market — what they have lacked is a clear view of the risk sitting inside their own portfolio. We built Kawach to close that gap for ourselves first, and to hold our own decisions to the same discipline we'd expect from any institutional desk."</blockquote>
+     <p class="lede" style="margin-bottom:0">Our aim with Kawach is simple: know what you hold, know what could go wrong, and act on that before the market forces the issue. This platform is a working reflection of how ARTHAVEST manages risk internally, and we intend to keep sharpening it as our own portfolios grow.</p>
+     <p class="sign">— Mahendra Dahal, Director</p>
+    </div>
+   </div>
+  </section>
+  <section class="blk"><h2>Why we built Kawach</h2>
+   <p class="lede" style="max-width:72ch">International risk platforms are built around the S&amp;P 500, the FTSE or the Nikkei — deep, liquid markets with decades of return history. NEPSE is younger, thinner, and moves in its own way: banks and hydropower dominate, correlations run high, and a 10% daily circuit can turn a bad day into a week-long problem. ARTHAVEST built Kawach because we wanted a system that reasoned about our own portfolios in those terms, rather than a global tool asked to make do.</p>
+  </section>
+  <section class="blk cols">${principles.map(p=>`<div><h3>${p[0]}</h3><p class="lede" style="margin-bottom:0">${p[1]}</p></div>`).join('')}</section>
+  <section class="blk"><h2>ARTHAVEST INVESTMENT PRIVATE LIMITED</h2>
+   <p class="lede" style="max-width:72ch">ARTHAVEST is a Nepal-based investment company active in the stock and financial markets. Kawach is built for our own portfolio and risk management, and shared here in that form.</p>
+   <table class="kv"><tbody>
+    <tr><td class="l" style="width:34%">Company</td><td class="l">ARTHAVEST INVESTMENT PRIVATE LIMITED</td></tr>
+    <tr><td class="l">Product</td><td class="l">KAWACH — portfolio and risk console</td></tr>
+    <tr><td class="l">Market focus</td><td class="l">Nepal Stock Exchange (NEPSE)</td></tr>
+   </tbody></table>
+  </section>
+  <p class="lede" style="margin-top:22px">Kawach is a working model, not a finished institutional system. Read the Method tab before relying on any figure it shows.</p>`;
+}
+
+/* ---------- confluence signal checker ---------- */
+let LAST_CF_JSON=null;
+function cfNum(id){const el=document.getElementById(id);if(!el)return null;const v=parseFloat(el.value);return isFinite(v)?v:null}
+function evaluateConfluence(){
+  const $$=id=>document.getElementById(id);
+  const symbol=($$('cfSymbol').value||'').trim().toUpperCase()||'\u2014';
+  const sectorName=($$('cfSectorName').value||'').trim()||'\u2014';
+  const cmp=cfNum('cfCmp'),ema20=cfNum('cfEma20'),ema50=cfNum('cfEma50');
+  const structure=$$('cfStructure').value,nepse=$$('cfNepse').value,sector=$$('cfSector').value;
+  const rsi=cfNum('cfRsi'),rsiSignal=$$('cfRsiSignal').checked,macd=$$('cfMacd').value;
+  const vol=cfNum('cfVol'),avgVol=cfNum('cfAvgVol'),broker=$$('cfBroker').checked;
+  const supportOk=$$('cfSupportOk').checked,support=cfNum('cfSupport'),resistance=cfNum('cfResistance'),turnover=cfNum('cfTurnover');
+  const box=$$('cfResult');
+  if(cmp==null){box.innerHTML='<div class="alert"><div><b>Enter the current market price</b><span>CMP is required before a signal can be evaluated.</span></div></div>';return}
+
+  const emaOk=(ema20==null||cmp>ema20)&&(ema50==null||cmp>ema50);
+  const gatePass=structure==='up'&&emaOk;
+
+  const sAlign=(nepse==='Bullish'?1:0)+(sector==='Bullish'?1:0);
+  const sSupport=supportOk?2:0;
+  const volRatio=(vol!=null&&avgVol)?vol/avgVol:null;
+  const sVolume=(volRatio!=null&&volRatio>=1.5?1:0)+(broker?1:0);
+  const sMomentum=(rsiSignal?1:0)+(macd==='bull'?1:0);
+
+  const entry=cmp,stop=support,risk=(stop!=null)?entry-stop:null;
+  const target=(risk!=null&&risk>0)?entry+3*risk:null;
+  const pathBlocked=(resistance!=null&&target!=null&&resistance<target);
+  const sPath=(!pathBlocked&&target!=null)?2:0;
+  const score=sAlign+sSupport+sVolume+sMomentum+sPath;
+
+  const factors=[];
+  if(nepse==='Bullish'&&sector==='Bullish')factors.push('NEPSE and '+sectorName+' sector index both trending bullish');
+  else if(nepse==='Bullish')factors.push('NEPSE index bullish');
+  else if(sector==='Bullish')factors.push(sectorName+' sector index bullish');
+  if(sSupport>0)factors.push('Price sitting on a confirmed support/demand zone');
+  if(volRatio!=null&&volRatio>=1.5)factors.push('Volume at '+volRatio.toFixed(1)+'x the 20-day average');
+  if(broker)factors.push('Net accumulation detected from major broker houses');
+  if(rsiSignal)factors.push('RSI rebounding from the 40\u201350 band, or bullish divergence');
+  if(macd==='bull')factors.push('MACD bullish crossover');
+  if(sPath>0)factors.push('Clear 1:3 path with no resistance before target');
+
+  let signal,reasoning;
+  if(!gatePass){
+    signal='NO SIGNAL';
+    reasoning=structure!=='up'?`${symbol} is not confirmed in a daily uptrend, so no long setup qualifies under a long-only system.`:`${symbol} is trading below its 20 or 50 EMA, so trend structure does not confirm.`;
+  }else if(risk==null||risk<=0){
+    signal='NO SIGNAL';
+    reasoning='Enter a nearest support below CMP so a stop loss and risk distance can be measured.';
+  }else if(pathBlocked){
+    signal='NO SIGNAL';
+    reasoning=`A resistance level at ${resistance} sits before the 1:3 target of ${target.toFixed(2)}, so the setup is discarded even though other factors line up.`;
+  }else if(score>=8){
+    signal='BUY';
+    reasoning=`${symbol} scores ${score}/10 on the confluence checklist with a clean 1:3 path from ${entry.toFixed(2)} down to ${stop.toFixed(2)}.`;
+  }else if(score>=5){
+    signal='HOLD';
+    reasoning=`${symbol} holds its uptrend but only scores ${score}/10 \u2014 worth watching, not yet a high-confluence entry.`;
+  }else{
+    signal='NO SIGNAL';
+    reasoning=`${symbol} scores just ${score}/10 on the confluence checklist, below the threshold for a long-only setup.`;
+  }
+
+  const result={signal,confidence_score:score,symbol,sector:sectorName,
+    entry_price:entry!=null?+entry.toFixed(2):null,
+    stop_loss:stop!=null?+stop.toFixed(2):null,
+    take_profit:(signal==='BUY'&&target!=null)?+target.toFixed(2):null,
+    risk_reward_ratio:signal==='BUY'?'1:3':null,
+    confluence_factors:factors,reasoning};
+  LAST_CF_JSON=JSON.stringify(result,null,2);
+
+  const verdictClass=signal==='BUY'?'ok':signal==='HOLD'?'watch':'';
+  const barColor=score>=8?'#2FA377':score>=5?'#D9A03A':'#D64560';
+  const liquidityWarn=(turnover!=null&&turnover<2500000)?`<div class="alert watch"><div><b>Liquidity risk</b><span>20-day average turnover is under Rs 25 lakh \u2014 expect slippage filling this size, and check the 10% circuit before sizing the order.</span></div></div>`:'';
+  const tradeRows=(signal==='BUY')?`<table class="kv"><tbody>
+    <tr><td>Entry</td><td>Rs ${entry.toFixed(2)}</td></tr>
+    <tr><td>Stop loss</td><td>Rs ${stop.toFixed(2)}</td></tr>
+    <tr><td>Take profit</td><td>Rs ${target.toFixed(2)}</td></tr>
+    <tr><td>Risk : reward</td><td>1:3</td></tr>
+   </tbody></table>`:'';
+  const factorList=factors.length?`<ul>${factors.map(f=>`<li>${esc(f)}</li>`).join('')}</ul>`:'<p class="lede">No confluence factors were met.</p>';
+
+  box.innerHTML=`
+   <div class="alert ${verdictClass}"><div><b>${symbol} \u2014 ${signal}</b><span>${esc(reasoning)}</span></div></div>
+   ${liquidityWarn}
+   <div class="part" style="grid-template-columns:150px 1fr 34px;margin-top:14px"><span>Confluence score</span><div class="bar"><i style="width:${score*10}%;background:${barColor}"></i></div><span class="n">${score}/10</span></div>
+   ${tradeRows}
+   <h3 style="margin-top:18px">Confluence factors met</h3>${factorList}
+   <h3 style="margin-top:18px">Raw output</h3>
+   <div class="tw"><pre style="background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:12px;font-size:12.5px;white-space:pre-wrap;overflow-wrap:anywhere">${esc(LAST_CF_JSON)}</pre></div>
+   <button class="btn ghost" id="cfCopyJson" type="button" style="margin-top:8px">Copy JSON</button>
+   <span class="msg" id="cfCopyMsg" role="status" style="display:inline-block;margin-left:10px"></span>`;
+}
+
+/* ---------- ETF project notify-me ---------- */
+const ETF_STORE_KEY='kawach_etf_notify_signups';
+function etfSaveSignup(addr){try{const list=JSON.parse(localStorage.getItem(ETF_STORE_KEY)||'[]');if(!list.includes(addr))list.push(addr);localStorage.setItem(ETF_STORE_KEY,JSON.stringify(list));return true}catch(e){return false}}
+function etfSubmitHandler(){
+  const email=document.getElementById('etfEmail'),note=document.getElementById('etfNote'),inline=document.getElementById('etfInline');
+  if(!email||!note)return;
+  const addr=email.value.trim();
+  const valid=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(addr);
+  if(!valid){note.textContent='Enter a valid email address to get notified.';note.className='etf-note err';email.focus();return}
+  etfSaveSignup(addr);
+  if(inline)inline.hidden=true;
+  note.textContent="You're on the list \u2014 we'll email "+addr+" when Nepal Top-50 ETF launches.";
+  note.className='etf-note ok';
+}
+const GOLD_STORE_KEY='kawach_gold_notify_signups';
+function goldSaveSignup(addr){try{const list=JSON.parse(localStorage.getItem(GOLD_STORE_KEY)||'[]');if(!list.includes(addr))list.push(addr);localStorage.setItem(GOLD_STORE_KEY,JSON.stringify(list));return true}catch(e){return false}}
+function goldSubmitHandler(){
+  const email=document.getElementById('goldEmail'),note=document.getElementById('goldNote'),inline=document.getElementById('goldInline');
+  if(!email||!note)return;
+  const addr=email.value.trim();
+  const valid=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(addr);
+  if(!valid){note.textContent='Enter a valid email address to get notified.';note.className='etf-note err';email.focus();return}
+  goldSaveSignup(addr);
+  if(inline)inline.hidden=true;
+  note.textContent="You're on the list \u2014 we'll email "+addr+" when Nepal Gold ETF launches.";
+  note.className='etf-note ok';
+}
+
+/* ---------- controller ---------- */
+const $=id=>document.getElementById(id);
+let A=null;
+function render(){
+  A=analyze();
+  const [t,s]=TITLES[st.view];$('title').textContent=t;$('subtitle').textContent=s;
+  $('nav').innerHTML=NAVS.map(([k,l])=>`<button data-v="${k}" ${k===st.view?'aria-current="page"':''}>${l}</button>`).join('');
+  const V=$('view');
+  V.innerHTML=({overview:vOverview,holdings:vHoldings,risk:vRisk,stress:vStress,market:vMarket,screener:vScreener,method:vMethod,about:vAbout,project:vProject})[st.view](A);
+  const f=$('sfill');if(f){const sc=+f.dataset.score;requestAnimationFrame(()=>requestAnimationFrame(()=>{f.style.transform=`translateY(${240*(1-sc/100)}px)`}))}
+  if(st.view==='stress'&&!A.empty)stressResult(A);
+}
+function go(v){st.view=v;render();window.scrollTo({top:0})}
+
+document.addEventListener('click',e=>{
+  const t=e.target.closest('button');if(!t)return;
+  if(t.dataset.v)return go(t.dataset.v);
+  if(t.dataset.del!==undefined){st.holdings.splice(+t.dataset.del,1);persist();return render()}
+  if(t.id==='reset'){st.holdings=sampleHoldings();persist();return render()}
+  if(t.dataset.sc){st.scen=t.dataset.sc;return render()}
+  if(t.id==='fadd')return addHolding();
+  if(t.id==='cfEval')return evaluateConfluence();
+  if(t.id==='etfNotifyBtn'){const inline=$('etfInline');inline.hidden=false;t.hidden=true;$('etfEmail').focus();return}
+  if(t.id==='etfSubmitBtn')return etfSubmitHandler();
+  if(t.id==='goldNotifyBtn'){const inline=$('goldInline');inline.hidden=false;t.hidden=true;$('goldEmail').focus();return}
+  if(t.id==='goldSubmitBtn')return goldSubmitHandler();
+  if(t.id==='cfCopyJson'){
+    const msg=$('cfCopyMsg');
+    if(!LAST_CF_JSON)return;
+    (navigator.clipboard&&navigator.clipboard.writeText(LAST_CF_JSON).then(()=>{msg.textContent='Copied.';setTimeout(()=>msg.textContent='',2000)}).catch(()=>{msg.textContent='Could not copy \u2014 select and copy the text above.'}))
+      ||(msg.textContent='Select and copy the text above.');
+    return;
+  }
+});
+document.addEventListener('keydown',e=>{
+  if(e.target&&e.target.id==='etfEmail'&&e.key==='Enter'){e.preventDefault();etfSubmitHandler()}
+  if(e.target&&e.target.id==='goldEmail'&&e.key==='Enter'){e.preventDefault();goldSubmitHandler()}
+});
+document.addEventListener('input',e=>{
+  const t=e.target;
+  if(t.dataset.cs){st.custom[t.dataset.cs]=+t.value;const present=[...new Set(A.H.map(h=>h.sector))];
+    const el=$('cs-'+present.indexOf(t.dataset.cs));if(el)el.textContent=(t.value>0?'+':'')+t.value+'%';stressResult(A)}
+});
+document.addEventListener('change',e=>{
+  const t=e.target;
+  if(t.id==='taxsel'){st.tax=+t.value;persist();return render()}
+  if(t.dataset.lim){const v=Math.max(.005,Math.min(1,(+t.value)/100));st.limits[t.dataset.lim]=v;persist();return render()}
+  if(t.dataset.k){const tr=t.closest('tr'),i=+tr.dataset.i;st.holdings[i][t.dataset.k]=Math.max(0,+t.value||0);persist();refreshRows()}
+  if(t.id==='fs'){const u=UNI[t.value.trim().toUpperCase()];if(u){$('fp').value=u.price;$('fx').value=u.sector;$('fx').disabled=true}else{$('fx').disabled=false}}
+});
+function refreshRows(){
+  const a=analyze();A=a;if(a.empty)return render();
+  const rate=st.tax;
+  document.querySelectorAll('tbody tr[data-i]').forEach(tr=>{const h=a.H[+tr.dataset.i];if(!h)return;
+    tr.querySelector('[data-c=val]').textContent=nprF(h.value);tr.querySelector('[data-c=w]').textContent=pc(h.w);
+    const p=tr.querySelector('[data-c=pl]');p.textContent=`${nprF(h.pnl)} (${h.basis?sg(h.pnl/h.basis,1):'-'})`;p.className=cls(h.pnl);
+    tr.querySelector('[data-c=tax]').textContent=nprF(Math.max(0,h.pnl)*rate)});
+  $('tv').textContent=nprF(a.V);const tp=$('tp');tp.textContent=nprF(a.pnl);tp.className=cls(a.pnl);
+  $('tt').textContent=nprF(a.H.reduce((x,h)=>x+Math.max(0,h.pnl)*rate,0));
+}
+function addHolding(){
+  const sym=$('fs').value.trim().toUpperCase(),qty=+$('fq').value,ltp=+$('fp').value,msg=$('fmsg');
+  let cost=+$('fc').value;
+  if(!/^[A-Z0-9]{2,12}$/.test(sym)){msg.textContent='Enter a symbol using letters and numbers only.';return}
+  if(!(qty>0)){msg.textContent='Enter a quantity above zero.';return}
+  if(!(ltp>0)){msg.textContent='Enter the last traded price.';return}
+  if(!(cost>0))cost=ltp;
+  const ex=st.holdings.find(h=>h.sym===sym);
+  if(ex){const tq=ex.qty+qty;ex.cost=((ex.qty*ex.cost)+(qty*cost))/tq;ex.qty=tq;ex.ltp=ltp}
+  else{const h={sym,qty,cost,ltp};if(!UNI[sym]){h.sector=$('fx').value;h.name=sym}st.holdings.push(h)}
+  persist();render();
+}
+
+function tick(){
+  const n=new Date(),t=new Date(n.getTime()+n.getTimezoneOffset()*60000+5.75*3600000),d=t.getDay(),m=t.getHours()*60+t.getMinutes();
+  const open=d>=0&&d<=4&&m>=660&&m<900,hh=String(t.getHours()).padStart(2,'0'),mm=String(t.getMinutes()).padStart(2,'0');
+  $('dot').className='dot'+(open?' on':'');
+  $('mstat').textContent=(open?'Session open':'Session closed')+', '+hh+':'+mm+' Nepal';
+  const MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  $('tapeDate').textContent=t.getDate()+' '+MON[t.getMonth()]+' '+t.getFullYear();
+}
+$('tapeIdx').textContent=f2.format(MKT.index);
+const tc=$('tapeChg');tc.textContent=sg(MKT.pct);tc.className=cls(MKT.pct);
+tick();setInterval(tick,30000);
+
+/* ---------- live NEPSE index (unofficial third-party feed, falls back to snapshot) ---------- */
+const LIVE_URL='https://nepseapi.surajrimal.dev/NepseIndex';
+function applyLive(){
+  if(!LIVE)return;
+  $('tapeIdx').textContent=f2.format(LIVE.index);
+  const c=$('tapeChg');c.textContent=sg(LIVE.pct);c.className=cls(LIVE.pct);
+  const p=$('livePill');p.style.display='';p.title='Pulled from an unofficial third-party service, not NEPSE. Refreshes about every 30 seconds.';
+  $('liveDot').className='dot on';$('liveTxt').textContent='Live, unofficial feed';
+}
+function liveFailed(e){
+  const why=e&&e.name==='AbortError'?'the service did not answer within 8 seconds':(e&&e.message&&!/Failed to fetch|NetworkError|Load failed/i.test(e.message)?e.message:'the browser could not reach it (service down, or blocked by CORS)');
+  const p=$('livePill');p.style.display='';
+  p.title='Live feed unavailable: '+why+'. Showing the 28 Sep snapshot. Retrying every 30 seconds.';
+  if(!LIVE){$('liveDot').className='dot';$('liveTxt').textContent='Live feed unavailable, showing snapshot'}
+}
+async function fetchLive(){
+  if(document.hidden)return;
+  const ctl=new AbortController(),to=setTimeout(()=>ctl.abort(),8000);
+  try{
+    const r=await fetch(LIVE_URL,{signal:ctl.signal,cache:'no-store'});
+    if(!r.ok)throw new Error('http '+r.status);
+    let d=await r.json();
+    if(d&&!Array.isArray(d)&&d.data&&d.currentValue==null&&d.close==null)d=d.data;
+    if(Array.isArray(d))d=d.find(x=>x&&(x.id===58||/nepse/i.test(String(x.index||''))))||d[0];
+    const num=v=>{const n=Number(v);return isFinite(n)?n:null};
+    const val=num(d&&(d.currentValue!=null?d.currentValue:d.close));
+    if(!val||val<MKT.index*0.5||val>MKT.index*2)throw new Error('implausible payload');
+    const prev=num(d.previousClose);
+    const chg=(prev&&prev>0)?val-prev:(num(d.change)||0);
+    const pct=(prev&&prev>0)?chg/prev:((num(d.perChange)||0)/100);
+    LIVE={index:val,chg,pct,time:d.generatedTime?String(d.generatedTime):null};
+    applyLive();
+    if(st.view==='market')render();
+  }catch(e){liveFailed(e)}
+  finally{clearTimeout(to)}
+}
+fetchLive();setInterval(fetchLive,30000);
+render();
+})();
+</script>
+</body>
+</html>
